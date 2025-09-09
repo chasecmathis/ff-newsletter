@@ -4,7 +4,7 @@ title: "Week 1"
 week: 1
 year: 2024
 date: 2025-09-09
-permalink: /newsletters/2024/week_1/
+permalink: /newsletters/2024/week_1
 ---
 
 ## The Gridiron Gauntlet Kicks Off: Week 1's Triumphs, Terrors, and Tiny Tackles!

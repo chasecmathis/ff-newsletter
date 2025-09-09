@@ -1,7 +1,7 @@
 # Basic Jekyll configuration
 title: "The Privacy Project Fantasy Football Newsletter"
 description: "Weekly fantasy football analysis and updates"
-baseurl: "" # Leave empty if using username.github.io/repo-name format
+baseurl: "/ff-newsletter" # Leave empty if using username.github.io/repo-name format
 url: "https://chasecmathis.github.io"
 
 # Use the default GitHub Pages theme
