@@ -135,14 +135,15 @@ STANDINGS:
 
     prompt += """
 
-Write a fun 800-1200 word newsletter that:
+Write a fun 1000-1400 word newsletter that:
 1. Has an engaging title that captures the season's storylines
-2. Analyzes current standings and power rankings with humor
-3. Reviews the current week's matchups and starting lineups with commentary
-4. Reviews trends and patterns from all previous weeks (hot/cold streaks, consistency, upsets)
-5. Highlights the best and worst performers by position across recent weeks
-6. Includes team-specific analysis and friendly trash talk
-7. Identifies key storylines and rivalries developing
+2. Displays the current standings and power rankings in nicely formatted tables
+3. Analyzes current standings and power rankings with humor
+4. Reviews the current week's matchups and starting lineups with commentary
+5. Reviews trends and patterns from all previous weeks (hot/cold streaks, consistency, upsets)
+6. Highlights the best and worst performers by position across recent weeks
+7. Includes team-specific analysis and friendly trash talk
+8. Identifies key storylines and rivalries developing
 9. Builds excitement for the next week
 
 Keep it entertaining with fantasy football humor and league-specific commentary!
