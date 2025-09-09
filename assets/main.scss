@@ -6,53 +6,25 @@
 
 /* Custom styles for fantasy football newsletter site */
 
-/* Football field pattern background */
+/* Clean body styling */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
-  color: #2c3e2d;
-  background: linear-gradient(135deg, #f8fdf8 0%, #f0f8f0 100%);
-  position: relative;
+  color: #1a1a1a;
+  background: #ffffff;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    linear-gradient(90deg, rgba(46, 125, 50, 0.05) 1px, transparent 1px),
-    linear-gradient(rgba(46, 125, 50, 0.05) 1px, transparent 1px);
-  background-size: 60px 40px;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Header improvements with football theme */
+/* Simplified header */
 .site-header {
-  border-bottom: 4px solid #2e7d32 !important;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fff8 100%) !important;
-  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.15) !important;
-  position: relative;
-}
-
-.site-header::after {
-  content: '🏈';
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-  opacity: 0.6;
+  border-bottom: 3px solid #2e7d32 !important;
+  background: #ffffff !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 
 .site-title {
   color: #1b5e20 !important;
-  font-weight: 700 !important;
-  font-size: 1.6rem !important;
-  text-shadow: 1px 1px 2px rgba(27, 94, 32, 0.1);
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
 }
 
 /* Main content area */
@@ -70,59 +42,34 @@ body::before {
 .site-intro {
   text-align: center;
   margin-bottom: 3rem;
-  padding: 3rem 2rem;
-  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #388e3c 100%);
-  border-radius: 15px;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
   margin-top: 1rem;
-  position: relative;
-  color: white;
-  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.3);
+  border: 1px solid #e9ecef;
 }
 
 .site-intro::before {
-  content: '🏈 ⚡ 🏆';
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  opacity: 0.7;
-}
-
-.site-intro::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    #fff 25%, 
-    transparent 30%,
-    transparent 70%,
-    #fff 75%,
-    transparent 100%);
-  border-radius: 0 0 15px 15px;
+  content: '🏈';
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .page-heading {
-  color: #ffffff !important;
-  font-size: 2.4rem !important;
-  font-weight: 800 !important;
+  color: #1b5e20 !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
   margin-bottom: 1rem;
-  margin-top: 2rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-  letter-spacing: -0.5px;
+  margin-top: 0;
 }
 
 .intro-text {
-  font-size: 1.2rem;
-  color: #e8f5e8;
+  font-size: 1.1rem;
+  color: #495057;
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .season-section {
@@ -157,35 +104,26 @@ body::before {
 }
 
 .newsletter-archive h2 {
-  color: #1b5e20 !important;
-  font-size: 2rem !important;
-  font-weight: 700 !important;
+  color: #212529 !important;
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
   text-align: center;
   margin-bottom: 2rem;
   position: relative;
 }
 
 .newsletter-archive h2::after {
-  content: '🏈';
-  margin-left: 0.5rem;
-  font-size: 1.5rem;
+  content: ' 🏈';
+  font-size: 1.2rem;
 }
 
 .newsletter-archive h3 {
-  color: #2e7d32 !important;
-  font-size: 1.5rem !important;
-  font-weight: 700 !important;
-  margin-bottom: 1.5rem;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
-  border-radius: 10px;
-  border-left: 5px solid #388e3c;
-  position: relative;
-}
-
-.newsletter-archive h3::before {
-  content: '📅';
-  margin-right: 0.5rem;
+  color: #1b5e20 !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #2e7d32;
 }
 
 .newsletter-list {
@@ -197,120 +135,78 @@ body::before {
 }
 
 .newsletter-list li {
-  padding: 1.5rem;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fff8 100%);
-  border-radius: 12px;
-  border: 2px solid #c8e6c9;
-  border-left: 6px solid #4caf50;
-  transition: all 0.3s ease;
-  position: relative;
-  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
-  margin-bottom: 0 !important;
-}
-
-.newsletter-list li::before {
-  content: '📰';
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-  opacity: 0.5;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  border-left: 4px solid #2e7d32;
+  transition: all 0.2s ease;
+  margin-bottom: 0.5rem !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .newsletter-list li:hover {
-  background: linear-gradient(135deg, #f8fff8 0%, #e8f5e8 100%);
-  transform: translateX(8px) translateY(-2px);
-  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.2);
-  border-color: #4caf50;
+  background: #f8f9fa;
+  border-left-color: #1b5e20;
+  transform: translateX(2px);
 }
 
 .newsletter-list a {
   text-decoration: none !important;
-  color: #1b5e20 !important;
-  font-weight: 600 !important;
-  font-size: 1.1rem;
+  color: #212529 !important;
+  font-weight: 500 !important;
+  font-size: 1rem;
   display: block;
   transition: color 0.2s ease;
 }
 
 .newsletter-list a:hover {
-  color: #2e7d32 !important;
+  color: #1b5e20 !important;
 }
 
 /* Newsletter content improvements */
 .post-content {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1.5rem;
   background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.1);
+  border-top: 4px solid #2e7d32;
   margin-top: 2rem;
-  position: relative;
-}
-
-.post-content::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #1b5e20, #2e7d32, #388e3c, #4caf50);
-  border-radius: 15px 15px 0 0;
 }
 
 .post-content h1 {
-  color: #1b5e20 !important;
-  font-size: 2.2rem !important;
-  font-weight: 800 !important;
-  margin-top: 2rem;
+  color: #212529 !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
   text-align: center;
-  position: relative;
-  padding-top: 1rem;
-}
-
-.post-content h1::after {
-  content: '🏆';
-  margin-left: 0.5rem;
 }
 
 .post-content h2 {
-  color: #2e7d32 !important;
-  font-size: 1.8rem !important;
-  font-weight: 700 !important;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
-  border-left: 5px solid #4caf50;
-  border-radius: 8px;
-  position: relative;
-}
-
-.post-content h2::before {
-  content: '🏈';
-  margin-right: 0.5rem;
-}
-
-.post-content h3 {
-  color: #388e3c !important;
-  font-size: 1.4rem !important;
+  color: #1b5e20 !important;
+  font-size: 1.6rem !important;
   font-weight: 600 !important;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 2px solid #c8e6c9;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #2e7d32;
 }
 
-.post-content h4 {
+.post-content h3 {
   color: #2e7d32 !important;
-  font-size: 1.2rem !important;
+  font-size: 1.3rem !important;
   font-weight: 600 !important;
   margin-top: 1.5rem;
   margin-bottom: 0.8rem;
+}
+
+.post-content h4 {
+  color: #495057 !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
 }
 
 /* Better paragraph spacing */
@@ -339,51 +235,39 @@ body::before {
 /* Highlight boxes for important content */
 .post-content blockquote {
   background-color: #f8f9fa;
-  border-left: 4px solid #4caf50;
+  border-left: 4px solid #2e7d32;
   padding: 1rem 1.5rem;
   margin: 1.5rem 0;
   font-style: italic;
-  color: #2c5530;
+  color: #495057;
 }
 
 /* Strong text styling */
 .post-content strong {
-  color: #1b5e20 !important;
+  color: #212529 !important;
   font-weight: 600 !important;
 }
 
 /* Emphasis styling */
 .post-content em {
-  color: #2c5530;
+  color: #495057;
   font-style: italic;
 }
 
 /* Footer improvements */
 .site-footer {
-  border-top: 4px solid #2e7d32 !important;
-  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%) !important;
-  color: #e8f5e8 !important;
-  margin-top: 4rem;
-  position: relative;
-}
-
-.site-footer::before {
-  content: '🏈 ⚡ 🏆 ⚡ 🏈';
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #ffffff;
-  padding: 0 1rem;
-  font-size: 0.9rem;
+  border-top: 3px solid #2e7d32 !important;
+  background: #f8f9fa !important;
+  color: #495057 !important;
+  margin-top: 3rem;
 }
 
 .site-footer a {
-  color: #c8e6c9 !important;
+  color: #1b5e20 !important;
 }
 
 .site-footer a:hover {
-  color: #ffffff !important;
+  color: #2e7d32 !important;
 }
 
 /* Responsive improvements */
@@ -393,9 +277,12 @@ body::before {
     margin-top: 1rem;
   }
   
+  .post-content h1 {
+    font-size: 1.7rem !important;
+  }
+  
   .post-content h2 {
-    font-size: 1.5rem !important;
-    padding: 0.6rem 1rem;
+    font-size: 1.4rem !important;
   }
   
   .post-content h3 {
@@ -407,29 +294,19 @@ body::before {
   }
   
   .site-intro {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
   
   .page-heading {
-    font-size: 2rem !important;
+    font-size: 1.8rem !important;
   }
-  
-  .site-header::after {
-    right: 1rem;
-  }
-}
-
-/* Special styling for intro paragraph */
-.post-content p:first-of-type {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 2rem;
 }
 
 /* Team standings and scores styling */
 .post-content li strong {
-  background-color: #e8f4f8;
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-size: 0.95rem;
+  background-color: #f8f9fa;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  color: #212529;
 }
