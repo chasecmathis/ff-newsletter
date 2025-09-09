@@ -5,8 +5,9 @@ excerpt: "Weekly fantasy football analysis and power rankings"
 ---
 
 <div class="hero-section">
-  <h1 class="hero-title">Fantasy Football Weekly Report</h1>
-  <p class="hero-subtitle">Weekly analysis, power rankings, and insights from the league</p>
+  <h1 class="hero-title">⚡ Fantasy Football Weekly Report</h1>
+  <p class="hero-subtitle">Your weekly dose of championship-level insights, power rankings, and the hottest takes in the league!</p>
+  <div class="hero-badge">🏆 Season Analysis & Rankings</div>
 </div>
 
 {:#newsletter-archive}
