@@ -22,16 +22,12 @@ navigation_header:
 # Colors (football theme)
 accent_color: '#2e7d32'
 
-# Plugins
+# Plugins (GitHub Pages supported plugins)
 plugins:
   - jekyll-sitemap
-  - jekyll-mentions
-  - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-redirect-from
   - jekyll-feed
-  - jekyll-commonmark
-  - jekyll-include-cache
   - jekyll-remote-theme
 
 # Site settings

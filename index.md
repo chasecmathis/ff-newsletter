@@ -3,7 +3,7 @@ title: Fantasy Football Weekly Report
 feature_text: |
   ## Fantasy Football Weekly Report 🏈
   Your comprehensive source for weekly fantasy football analysis, power rankings, and entertaining commentary from each week of the season.
-feature_image: "https://unsplash.it/1300/400?image=971"
+feature_image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?ixlib=rb-4.0.3&auto=format&fit=crop&w=1300&h=400&q=80"
 excerpt: "Weekly fantasy football analysis and updates"
 ---
 
