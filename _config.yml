@@ -1,28 +1,61 @@
-# Basic Jekyll configuration
-title: "The Privacy Project Fantasy Football Newsletter"
-description: "Weekly fantasy football analysis and updates"
-baseurl: "/ff-newsletter" # Leave empty if using username.github.io/repo-name format
+# Site configuration
+title: "Privacy Project Fantasy Football Weekly Report"
+tagline: "Your weekly dose of fantasy football analysis and insights"
+description: "Comprehensive weekly fantasy football analysis, power rankings, and entertaining commentary from each week of the season."
+logo: "🏈"
+author: "The Commissioner"
+
+# Site settings
 url: "https://chasecmathis.github.io"
+baseurl: "/ff-newsletter"
 
-# Use the default GitHub Pages theme
-theme: minima
+# Theme
+remote_theme: daviddarnes/alembic@main
 
-# Sass configuration
-sass:
-  sass_dir: _sass
-  style: compressed
+# Navigation
+navigation_header:
+- title: Home
+  url: /
+- title: Archive
+  url: /#archive
 
-# Enable GitHub Pages
+# Colors (football theme)
+accent_color: '#2e7d32'
+
+# Plugins
 plugins:
-  - jekyll-feed
   - jekyll-sitemap
+  - jekyll-mentions
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-feed
+  - jekyll-commonmark
+  - jekyll-include-cache
+  - jekyll-remote-theme
 
-# Markdown processor
-markdown: kramdown
-highlighter: rouge
+# Site settings
+encoding: utf-8
+lang: en-GB
+timezone: America/Chicago
 
-# Collections (optional, for better organization)
+# Pagination
+paginate: 5
+paginate_path: blog/page:num
+
+# Collections
 collections:
   newsletters:
     output: true
-    permalink: /ff-newsletter/:collection/:name/
+    permalink: /newsletters/:name/
+
+# Markdown settings
+markdown: CommonMark
+highlighter: rouge
+commonmark:
+  options: ["SMART", "FOOTNOTES"]
+  extensions: ["strikethrough", "autolink", "table"]
+
+# Sass
+sass:
+  style: compressed

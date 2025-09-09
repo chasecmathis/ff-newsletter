@@ -1,10 +1,14 @@
 ---
-layout: default
+layout: post
 title: "Week 1"
 week: 1
-year: 2025
+year: 2025  
 date: 2025-09-09
-permalink: /newsletters/2025/week_1/
+categories: newsletter 2025
+feature_text: |
+  ## Week 1 Fantasy Report 🏈
+  Hype Trains & Heartbreak on Opening Weekend!
+excerpt: "Week 1 of the 2025 season recap with all the drama, surprises, and fantasy insights you need."
 ---
 
 ## The Week 1 Wake-Up Call: Hype Trains & Heartbreak on Opening Weekend!
