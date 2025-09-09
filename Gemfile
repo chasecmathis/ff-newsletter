@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem "jekyll-remote-theme"
+
 # GitHub Pages gem (includes Jekyll and supported plugins)
 gem "github-pages", group: :jekyll_plugins
 
