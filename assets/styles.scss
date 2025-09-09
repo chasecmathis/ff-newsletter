@@ -1,0 +1,188 @@
+---
+title: false
+styles: true
+---
+
+@import "alembic";
+
+/* ========================================
+   PROFESSIONAL FANTASY FOOTBALL THEME
+   ======================================== */
+
+/* Color Variables - Professional Football Palette */
+:root {
+  --primary-green: #1b5e20;        /* Deep forest green */
+  --accent-green: #2e7d32;         /* Medium green */
+  --light-green: #4caf50;          /* Light green */
+  --neutral-dark: #263238;         /* Charcoal */
+  --neutral-medium: #455a64;       /* Medium gray */
+  --neutral-light: #eceff1;        /* Light gray */
+  --white: #ffffff;
+  --text-primary: #212121;
+  --text-secondary: #616161;
+  
+  /* Override Alembic variables */
+  --accent: var(--accent-green);
+  --linkColour: var(--primary-green);
+  --headingColour: var(--neutral-dark);
+  --bodyColour: var(--text-primary);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-section {
+  text-align: center;
+  padding: 3rem 0 4rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--neutral-light);
+  background: linear-gradient(135deg, var(--white) 0%, #f8f9fa 100%);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--neutral-dark);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+/* ========================================
+   NEWSLETTER ARCHIVE STYLING
+   ======================================== */
+
+.newsletter-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.newsletter-list li {
+  background: var(--white);
+  border: 1px solid var(--neutral-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent-green);
+  transition: background-color 0.2s ease;
+}
+
+.newsletter-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-green);
+}
+
+.newsletter-list li:hover::before {
+  background: var(--primary-green);
+}
+
+.newsletter-list a {
+  text-decoration: none;
+  color: var(--neutral-dark);
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+.newsletter-list a:hover {
+  color: var(--primary-green);
+}
+
+/* ========================================
+   TYPOGRAPHY ENHANCEMENTS
+   ======================================== */
+
+h2 {
+  color: var(--neutral-dark);
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+h3 {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 0 3rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+  
+  .newsletter-list li {
+    padding: 1.25rem;
+  }
+  
+  h2 {
+    margin-top: 2rem;
+  }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* ========================================
+   NAVIGATION ENHANCEMENTS
+   ======================================== */
+
+.nav a {
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: var(--primary-green) !important;
+}

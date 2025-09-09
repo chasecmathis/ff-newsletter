@@ -170,6 +170,11 @@ week: {current_week}
 year: {year}
 date: {datetime.datetime.now().strftime('%Y-%m-%d')}
 permalink: /newsletters/{year}/week_{current_week}/
+categories: {year}
+feature_text: |
+  ## Week {current_week} Fantasy Report 🏈
+  Hype Trains, Heartbreak, Matchups, and More!
+excerpt: "Week {current_week} of the {year} season recap with all the drama, surprises, and fantasy insights you need."
 ---
 
 """

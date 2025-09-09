@@ -1,13 +1,15 @@
 ---
 layout: page
 title: Fantasy Football Weekly Report
-feature_text: |
-  ## Fantasy Football Weekly Report 🏈
-  Your comprehensive source for weekly fantasy football analysis, power rankings, and entertaining commentary from each week of the season.
-feature_image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?ixlib=rb-4.0.3&auto=format&fit=crop&w=1300&h=400&q=80"
-excerpt: "Weekly fantasy football analysis and updates"
+excerpt: "Weekly fantasy football analysis and power rankings"
 ---
 
+<div class="hero-section">
+  <h1 class="hero-title">Fantasy Football Weekly Report</h1>
+  <p class="hero-subtitle">Weekly analysis, power rankings, and insights from the league</p>
+</div>
+
+{:#newsletter-archive}
 ## Newsletter Archive
 
 ### 2025 Season

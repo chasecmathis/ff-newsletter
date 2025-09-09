@@ -4,7 +4,8 @@ title: "Week 1"
 week: 1
 year: 2025  
 date: 2025-09-09
-categories: newsletter 2025
+permalink: /newsletters/{year}/week_{current_week}/
+categories: 2025
 feature_text: |
   ## Week 1 Fantasy Report 🏈
   Hype Trains & Heartbreak on Opening Weekend!
