@@ -7,6 +7,11 @@ url: "https://chasecmathis.github.io"
 # Use the default GitHub Pages theme
 theme: minima
 
+# Sass configuration
+sass:
+  sass_dir: _sass
+  style: compressed
+
 # Enable GitHub Pages
 plugins:
   - jekyll-feed
