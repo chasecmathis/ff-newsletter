@@ -16,8 +16,6 @@ remote_theme: daviddarnes/alembic@main
 navigation_header:
 - title: Home
   url: /
-- title: Archive
-  url: /#archive
 
 # Colors (football theme)
 accent_color: '#2e7d32'
@@ -26,32 +24,9 @@ accent_color: '#2e7d32'
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-redirect-from
   - jekyll-feed
   - jekyll-remote-theme
 
 # Site settings
 encoding: utf-8
 lang: en-GB
-timezone: America/Chicago
-
-# Pagination
-paginate: 5
-paginate_path: blog/page:num
-
-# Collections
-collections:
-  newsletters:
-    output: true
-    permalink: /newsletters/:name/
-
-# Markdown settings
-markdown: CommonMark
-highlighter: rouge
-commonmark:
-  options: ["SMART", "FOOTNOTES"]
-  extensions: ["strikethrough", "autolink", "table"]
-
-# Sass
-sass:
-  style: compressed

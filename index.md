@@ -1,4 +1,5 @@
 ---
+layout: page
 title: Fantasy Football Weekly Report
 feature_text: |
   ## Fantasy Football Weekly Report 🏈
