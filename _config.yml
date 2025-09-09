@@ -20,4 +20,4 @@ highlighter: rouge
 collections:
   newsletters:
     output: true
-    permalink: /:collection/:name/
+    permalink: /ff-newsletter/:collection/:name/
