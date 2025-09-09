@@ -1,8 +1,9 @@
 from espn_api.football import League
-import google.genai as genai
+import google.generativeai as genai
 import pathlib
 import os
 from dotenv import load_dotenv
+import datetime
 from collections import defaultdict
 
 
@@ -161,7 +162,16 @@ def generate_newsletter(current_week, year, api_key):
     # Generate the newsletter using Gemini
     try:
         response = model.generate_content(prompt)
-        return response.text
+        front_matter = f"""---
+layout: default
+title: "Week {current_week}"
+week: {current_week}
+year: {year}
+date: {datetime.datetime.now().strftime('%Y-%m-%d')}
+---
+
+"""
+        return front_matter + response.text
     except Exception as e:
         return f"Error generating newsletter: {str(e)}"
 
@@ -182,7 +192,7 @@ if __name__ == "__main__":
             print("Generating newsletter...")
             newsletter = generate_newsletter(current_week, current_year, api_key)
             try:
-                path = pathlib.Path(f"./newsletters/{current_year}_week_{current_week}_newsletter.md")
+                path = pathlib.Path(f"./newsletters/{current_year}/week_{current_week}.md")
                 path.parent.mkdir(exist_ok=True, parents=True)
                 path.write_text(newsletter)
             except IOError as e:

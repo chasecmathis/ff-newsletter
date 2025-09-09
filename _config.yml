@@ -1,0 +1,23 @@
+# Basic Jekyll configuration
+title: "The Privacy Project Fantasy Football Newsletter"
+description: "Weekly fantasy football analysis and updates"
+baseurl: "" # Leave empty if using username.github.io/repo-name format
+url: "https://chasecmathis.github.io"
+
+# Use the default GitHub Pages theme
+theme: minima
+
+# Enable GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Markdown processor
+markdown: kramdown
+highlighter: rouge
+
+# Collections (optional, for better organization)
+collections:
+  newsletters:
+    output: true
+    permalink: /:collection/:name/
