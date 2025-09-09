@@ -18,8 +18,8 @@ navigation_header:
 - title: Archive
   url: /#newsletter-archive
 
-# Professional color scheme
-accent_color: '#2e7d32'
+# Football field color scheme
+accent_color: '#196b1a'
 
 # Plugins (GitHub Pages supported plugins)
 plugins:

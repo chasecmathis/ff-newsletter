@@ -6,46 +6,119 @@ styles: true
 @import "alembic";
 
 /* ========================================
-   PROFESSIONAL FANTASY FOOTBALL THEME
+   FANTASY FOOTBALL FIELD THEME
+   Modern, sleek, and football-inspired
    ======================================== */
 
-/* Color Variables - Fun Football Palette */
+/* Color Palette - Football Field & Stadium */
 :root {
-  --primary-green: #1b5e20;        /* Deep forest green */
-  --accent-green: #2e7d32;         /* Medium green */
-  --light-green: #4caf50;          /* Light green */
-  --bright-green: #66bb6a;         /* Bright green */
-  --electric-green: #76ff03;       /* Electric green accent */
-  --neutral-dark: #1a1a1a;         /* Rich black */
-  --neutral-medium: #424242;       /* Medium gray */
-  --neutral-light: #f5f5f5;        /* Light gray */
-  --white: #ffffff;
-  --text-primary: #212121;
-  --text-secondary: #555555;
-  --gradient-primary: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 50%, var(--light-green) 100%);
-  --gradient-accent: linear-gradient(45deg, var(--electric-green) 0%, var(--bright-green) 100%);
+  /* Primary field colors */
+  --field-green: #196b1a;
+  --field-light: #2d8f2f;
+  --field-dark: #0d4a0e;
+  --yard-line: #ffffff;
+  --end-zone: #1a472a;
   
-  /* Override Alembic variables */
-  --accent: var(--accent-green);
-  --linkColour: var(--primary-green);
-  --headingColour: var(--neutral-dark);
-  --bodyColour: var(--text-primary);
+  /* Stadium colors */
+  --stadium-concrete: #4a4a4a;
+  --stadium-light: #6b6b6b;
+  --floodlight: #ffd700;
+  --scoreboard: #000000;
+  
+  /* Team colors */
+  --home-primary: #003366;
+  --home-secondary: #336699;
+  --away-primary: #660033;
+  --away-secondary: #994466;
+  
+  /* UI colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-light: #ffffff;
+  --bg-white: #ffffff;
+  --bg-light: #f8f9fa;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-heavy: rgba(0, 0, 0, 0.3);
+  
+  /* Gradients */
+  --field-gradient: linear-gradient(180deg, var(--field-green) 0%, var(--field-dark) 100%);
+  --stadium-gradient: linear-gradient(135deg, var(--stadium-concrete) 0%, var(--stadium-light) 100%);
+  --scoreboard-gradient: linear-gradient(145deg, #1a1a1a 0%, #000000 100%);
 }
 
 /* ========================================
-   HERO SECTION
+   GLOBAL OVERRIDES
    ======================================== */
 
-.hero-section {
-  text-align: center;
-  padding: 4rem 2rem 5rem;
-  margin-bottom: 3rem;
-  background: var(--gradient-primary);
-  border-radius: 0 0 2rem 2rem;
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+/* ========================================
+   HEADER & NAVIGATION
+   ======================================== */
+
+.header {
+  background: var(--scoreboard-gradient);
+  border-bottom: 3px solid var(--floodlight);
   position: relative;
   overflow: hidden;
 }
 
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 48px,
+      rgba(255, 215, 0, 0.1) 48px,
+      rgba(255, 215, 0, 0.1) 52px
+    );
+  pointer-events: none;
+}
+
+.header .logo,
+.header .nav a {
+  color: var(--text-light) !important;
+  font-weight: 600;
+  text-shadow: 0 2px 4px var(--shadow-heavy);
+  position: relative;
+  z-index: 2;
+}
+
+.header .nav a:hover {
+  color: var(--floodlight) !important;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* ========================================
+   HERO SECTION - FOOTBALL FIELD
+   ======================================== */
+
+.hero-section {
+  background: var(--field-gradient);
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+  margin: 0 -2rem 4rem -2rem;
+  text-align: center;
+}
+
+/* Field lines background */
 .hero-section::before {
   content: '';
   position: absolute;
@@ -53,145 +126,260 @@ styles: true
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
-  z-index: 1;
+  background-image: 
+    /* Hash marks */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 18px,
+      rgba(255, 255, 255, 0.2) 18px,
+      rgba(255, 255, 255, 0.2) 20px,
+      transparent 20px,
+      transparent 38px
+    ),
+    /* Yard lines */
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 98px,
+      rgba(255, 255, 255, 0.4) 98px,
+      rgba(255, 255, 255, 0.4) 102px
+    );
+  opacity: 0.6;
 }
 
-.hero-section > * {
+/* Field goal posts */
+.hero-section::after {
+  content: '⚡';
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: var(--floodlight);
+  animation: flicker 2s infinite;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 900;
+  color: var(--text-light);
+  text-shadow: 
+    0 2px 4px var(--shadow-heavy),
+    0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
   position: relative;
   z-index: 2;
 }
 
-.hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--neutral-dark);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  animation: slideInUp 0.8s ease-out;
-}
-
 .hero-subtitle {
-  font-size: 1.4rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  line-height: 1.5;
-  animation: slideInUp 0.8s ease-out 0.2s both;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  text-shadow: 0 2px 4px var(--shadow-heavy);
+  position: relative;
+  z-index: 2;
 }
 
 .hero-badge {
   display: inline-block;
-  background: var(--gradient-accent);
-  color: var(--neutral-dark);
-  font-weight: 700;
+  background: var(--floodlight);
+  color: var(--scoreboard);
+  font-weight: 800;
   font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(118, 255, 3, 0.3);
-  animation: pulse 2s infinite, slideInUp 0.8s ease-out 0.4s both;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 20px rgba(255, 215, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.hero-badge:hover {
+  transform: translateY(-3px) scale(1.05);
 }
 
 /* ========================================
-   NEWSLETTER ARCHIVE STYLING
+   CONTENT SECTIONS
+   ======================================== */
+
+.main {
+  background: var(--bg-white);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -8px 32px var(--shadow);
+  position: relative;
+  z-index: 10;
+  padding: 3rem 2rem;
+  margin-top: -2rem;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: var(--field-green);
+  margin: 3rem 0 2rem;
+  text-align: center;
+  position: relative;
+}
+
+h2::before {
+  content: '🏈';
+  margin-right: 1rem;
+  font-size: 0.8em;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--home-primary);
+  margin: 2.5rem 0 1.5rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+h3::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: var(--field-green);
+  font-size: 0.8em;
+}
+
+/* ========================================
+   NEWSLETTER ARCHIVE - STADIUM STYLE
    ======================================== */
 
 .newsletter-list {
   list-style: none;
   padding: 0;
-  margin: 2rem 0;
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
 .newsletter-list li {
-  background: var(--white);
-  border: 1px solid var(--neutral-light);
-  border-radius: 8px;
-  padding: 1.5rem;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
+  border: 2px solid var(--field-light);
+  border-radius: 12px;
+  padding: 2rem;
   position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 
+/* Stadium lighting effect */
 .newsletter-list li::before {
-  content: '🏈';
+  content: '';
   position: absolute;
-  left: 1rem;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--floodlight) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.newsletter-list li::after {
+  content: '🏟️';
+  position: absolute;
+  right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
+  font-size: 1.5rem;
   opacity: 0.7;
+  transition: all 0.4s ease;
 }
 
 .newsletter-list li:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(46, 125, 50, 0.2);
-  border-color: var(--bright-green);
-  background: linear-gradient(135deg, var(--white) 0%, rgba(118, 255, 3, 0.05) 100%);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px var(--shadow),
+    0 0 0 3px var(--field-green);
+  border-color: var(--field-green);
 }
 
 .newsletter-list li:hover::before {
-  transform: translateY(-50%) rotate(15deg) scale(1.2);
+  opacity: 0.05;
+}
+
+.newsletter-list li:hover::after {
+  transform: translateY(-50%) scale(1.2) rotate(5deg);
   opacity: 1;
 }
 
 .newsletter-list a {
-  text-decoration: none;
-  color: var(--neutral-dark);
-  font-weight: 700;
-  font-size: 1.1rem;
   display: block;
-  padding-left: 3rem;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
   position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
 }
 
 .newsletter-list a:hover {
-  color: var(--primary-green);
-  transform: translateX(0.5rem);
+  color: var(--field-green);
 }
 
 /* ========================================
-   TYPOGRAPHY ENHANCEMENTS
+   TABLES - SCOREBOARD STYLE
    ======================================== */
 
-h2 {
-  color: var(--neutral-dark);
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: var(--bg-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+th {
+  background: var(--scoreboard-gradient);
+  color: var(--text-light);
+  padding: 1.5rem 1rem;
   font-weight: 700;
-  font-size: 2.2rem;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  border-bottom: 3px solid var(--floodlight);
+}
+
+td {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+tr:hover td {
+  background-color: rgba(25, 107, 26, 0.05);
+}
+
+tr:nth-child(even) td {
+  background-color: var(--bg-light);
+}
+
+/* Ranking indicators */
+td:first-child {
+  font-weight: 800;
+  color: var(--field-green);
   position: relative;
-  text-align: center;
 }
 
-h2::after {
-  content: '⚡';
-  margin-left: 0.5rem;
-  color: var(--electric-green);
-  animation: sparkle 2s infinite;
-}
-
-h3 {
-  color: var(--primary-green);
-  font-weight: 700;
-  font-size: 1.4rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-h3::before {
-  content: '🏆';
-  margin-right: 0.5rem;
-}
+/* Top 3 rankings */
+tr:nth-child(1) td:first-child::before { content: '🥇 '; }
+tr:nth-child(2) td:first-child::before { content: '🥈 '; }
+tr:nth-child(3) td:first-child::before { content: '🥉 '; }
 
 /* ========================================
    RESPONSIVE DESIGN
@@ -199,58 +387,64 @@ h3::before {
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 2rem 0 3rem;
+    padding: 4rem 1rem;
+    margin: 0 -1rem 3rem -1rem;
   }
   
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-    padding: 0 1rem;
+  .main {
+    padding: 2rem 1rem;
+    border-radius: 12px 12px 0 0;
   }
   
   .newsletter-list li {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
   
   h2 {
-    margin-top: 2rem;
+    margin: 2rem 0 1.5rem;
+  }
+  
+  table {
+    font-size: 0.9rem;
+  }
+  
+  th, td {
+    padding: 1rem 0.75rem;
   }
 }
 
-/* ========================================
-   UTILITY CLASSES
-   ======================================== */
-
-.text-center {
-  text-align: center;
-}
-
-.text-muted {
-  color: var(--text-secondary);
-  font-style: italic;
-}
-
-/* ========================================
-   NAVIGATION ENHANCEMENTS
-   ======================================== */
-
-.nav a {
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.nav a:hover {
-  color: var(--primary-green) !important;
+@media (max-width: 480px) {
+  .hero-section::after {
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+  }
+  
+  .hero-badge {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  h3 {
+    padding-left: 1.5rem;
+  }
+  
+  .newsletter-list li::after {
+    right: 1rem;
+    font-size: 1.2rem;
+  }
 }
 
 /* ========================================
    ANIMATIONS
    ======================================== */
 
-@keyframes slideInUp {
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes slideUp {
   from {
     transform: translateY(30px);
     opacity: 0;
@@ -261,30 +455,81 @@ h3::before {
   }
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+/* Page load animations */
+.hero-title { animation: slideUp 0.8s ease-out; }
+.hero-subtitle { animation: slideUp 0.8s ease-out 0.2s both; }
+.hero-badge { animation: slideUp 0.8s ease-out 0.4s both; }
+
+/* ========================================
+   SPECIAL CONTENT STYLING
+   ======================================== */
+
+/* Highlight boxes for important content */
+blockquote {
+  background: linear-gradient(135deg, var(--field-light) 0%, var(--field-green) 100%);
+  color: var(--text-light);
+  border-left: 4px solid var(--floodlight);
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  position: relative;
 }
 
-@keyframes sparkle {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-    opacity: 0.8;
-  }
-  25% {
-    transform: scale(1.2) rotate(10deg);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(0.9) rotate(-5deg);
-    opacity: 0.9;
-  }
-  75% {
-    transform: scale(1.1) rotate(8deg);
-    opacity: 1;
-  }
+blockquote::before {
+  content: '💬';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+}
+
+/* Code blocks */
+pre, code {
+  background: var(--scoreboard);
+  color: var(--floodlight);
+  border-radius: 6px;
+}
+
+pre {
+  padding: 1.5rem;
+  overflow-x: auto;
+  border: 1px solid var(--stadium-concrete);
+}
+
+code {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9em;
+}
+
+/* Links */
+a {
+  color: var(--field-green);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--field-dark);
+  text-decoration: underline;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+  background: var(--stadium-gradient);
+  color: var(--text-light);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.footer a {
+  color: var(--floodlight);
+}
+
+.footer a:hover {
+  color: var(--text-light);
 }
