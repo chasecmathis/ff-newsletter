@@ -168,6 +168,7 @@ title: "Week {current_week}"
 week: {current_week}
 year: {year}
 date: {datetime.datetime.now().strftime('%Y-%m-%d')}
+permalink: /newsletters/{year}/week_{current_week}/
 ---
 
 """
