@@ -4,7 +4,7 @@ title: "Week 1"
 week: 1
 year: 2025  
 date: 2025-09-09
-permalink: /newsletters/{year}/week_{current_week}/
+permalink: /newsletters/2025/week_1/
 categories: [season_2025]
 feature_text: |
   ## Week 1 Fantasy Report 🏈
