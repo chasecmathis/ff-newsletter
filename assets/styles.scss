@@ -6,73 +6,105 @@ styles: true
 @import "alembic";
 
 /* ========================================
-   FANTASY FOOTBALL FIELD THEME
-   Modern, sleek, and football-inspired
+   FANTASY FOOTBALL THEME - REFINED
+   Clean, readable, and mobile-first
    ======================================== */
 
-/* Color Palette - Football Field & Stadium */
+/* Color Palette - Refined Football Theme */
 :root {
-  /* Primary field colors */
-  --field-green: #196b1a;
-  --field-light: #2d8f2f;
-  --field-dark: #0d4a0e;
-  --yard-line: #ffffff;
-  --end-zone: #1a472a;
+  /* Primary colors - improved contrast */
+  --field-green: #1b5e20;
+  --field-light: #4caf50;
+  --field-dark: #0d3b0e;
   
-  /* Stadium colors */
-  --stadium-concrete: #4a4a4a;
-  --stadium-light: #6b6b6b;
-  --floodlight: #ffd700;
-  --scoreboard: #000000;
-  
-  /* Team colors */
-  --home-primary: #003366;
-  --home-secondary: #336699;
-  --away-primary: #660033;
-  --away-secondary: #994466;
-  
-  /* UI colors */
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a4a4a;
+  /* Neutral colors - better readability */
+  --text-primary: #212121;
+  --text-secondary: #424242;
   --text-light: #ffffff;
+  --text-muted: #666666;
+  
+  /* Background colors */
   --bg-white: #ffffff;
   --bg-light: #f8f9fa;
-  --shadow: rgba(0, 0, 0, 0.1);
-  --shadow-heavy: rgba(0, 0, 0, 0.3);
+  --bg-dark: #2c2c2c;
   
-  /* Gradients */
-  --field-gradient: linear-gradient(180deg, var(--field-green) 0%, var(--field-dark) 100%);
-  --stadium-gradient: linear-gradient(135deg, var(--stadium-concrete) 0%, var(--stadium-light) 100%);
-  --scoreboard-gradient: linear-gradient(145deg, #1a1a1a 0%, #000000 100%);
+  /* Accent colors */
+  --accent-gold: #ffa000;
+  --accent-blue: #1976d2;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+  
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
 }
 
 /* ========================================
-   GLOBAL OVERRIDES
+   GLOBAL STYLES
    ======================================== */
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg-light);
   color: var(--text-primary);
   line-height: 1.6;
+  font-size: 16px;
 }
 
 .container {
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* ========================================
-   HEADER & NAVIGATION
+   HEADER - SIMPLIFIED
    ======================================== */
 
 .header {
-  background: var(--scoreboard-gradient);
-  border-bottom: 3px solid var(--floodlight);
-  position: relative;
-  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 1rem 0;
+  box-shadow: var(--shadow-sm);
 }
 
-.header::after {
+.header .logo {
+  color: var(--text-light) !important;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.header .nav a {
+  color: var(--text-light) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease;
+}
+
+.header .nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   HERO SECTION - CLEANER DESIGN
+   ======================================== */
+
+.hero-section {
+  background: linear-gradient(135deg, var(--field-green) 0%, var(--field-dark) 100%);
+  color: var(--text-light);
+  padding: 4rem 1rem 5rem;
+  text-align: center;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+/* Subtle field texture */
+.hero-section::before {
   content: '';
   position: absolute;
   top: 0;
@@ -83,235 +115,144 @@ body {
     repeating-linear-gradient(
       90deg,
       transparent,
-      transparent 48px,
-      rgba(255, 215, 0, 0.1) 48px,
-      rgba(255, 215, 0, 0.1) 52px
+      transparent 120px,
+      rgba(255, 255, 255, 0.05) 120px,
+      rgba(255, 255, 255, 0.05) 124px
     );
-  pointer-events: none;
-}
-
-.header .logo,
-.header .nav a {
-  color: var(--text-light) !important;
-  font-weight: 600;
-  text-shadow: 0 2px 4px var(--shadow-heavy);
-  position: relative;
-  z-index: 2;
-}
-
-.header .nav a:hover {
-  color: var(--floodlight) !important;
-  transform: translateY(-2px);
-  transition: all 0.3s ease;
-}
-
-/* ========================================
-   HERO SECTION - FOOTBALL FIELD
-   ======================================== */
-
-.hero-section {
-  background: var(--field-gradient);
-  padding: 6rem 2rem;
-  position: relative;
-  overflow: hidden;
-  margin: 0 -2rem 4rem -2rem;
-  text-align: center;
-}
-
-/* Field lines background */
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    /* Hash marks */
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 18px,
-      rgba(255, 255, 255, 0.2) 18px,
-      rgba(255, 255, 255, 0.2) 20px,
-      transparent 20px,
-      transparent 38px
-    ),
-    /* Yard lines */
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 98px,
-      rgba(255, 255, 255, 0.4) 98px,
-      rgba(255, 255, 255, 0.4) 102px
-    );
-  opacity: 0.6;
-}
-
-/* Field goal posts */
-.hero-section::after {
-  content: '⚡';
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 3rem;
-  color: var(--floodlight);
-  animation: flicker 2s infinite;
+  opacity: 0.7;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  font-weight: 900;
-  color: var(--text-light);
-  text-shadow: 
-    0 2px 4px var(--shadow-heavy),
-    0 4px 8px rgba(0, 0, 0, 0.5);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 2;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin: 0 auto 2rem;
   max-width: 600px;
-  margin: 0 auto 2.5rem;
-  text-shadow: 0 2px 4px var(--shadow-heavy);
+  opacity: 0.95;
   position: relative;
   z-index: 2;
 }
 
 .hero-badge {
   display: inline-block;
-  background: var(--floodlight);
-  color: var(--scoreboard);
-  font-weight: 800;
-  font-size: 1rem;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  box-shadow: 
-    0 4px 20px rgba(255, 215, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: var(--accent-gold);
+  color: var(--bg-dark);
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   position: relative;
   z-index: 2;
-  transition: transform 0.3s ease;
-}
-
-.hero-badge:hover {
-  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-md);
 }
 
 /* ========================================
-   CONTENT SECTIONS
+   MAIN CONTENT
    ======================================== */
 
 .main {
   background: var(--bg-white);
-  border-radius: 16px 16px 0 0;
-  box-shadow: 0 -8px 32px var(--shadow);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  margin: 0 auto;
+  box-shadow: var(--shadow-sm);
   position: relative;
-  z-index: 10;
-  padding: 3rem 2rem;
-  margin-top: -2rem;
+}
+
+/* ========================================
+   TYPOGRAPHY - IMPROVED CONTRAST
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 800;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   color: var(--field-green);
-  margin: 3rem 0 2rem;
   text-align: center;
+  margin: 2.5rem 0 2rem;
   position: relative;
 }
 
 h2::before {
   content: '🏈';
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   font-size: 0.8em;
 }
 
 h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--home-primary);
-  margin: 2.5rem 0 1.5rem;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  color: var(--field-dark);
+  margin: 2rem 0 1rem;
+  padding-left: 1.5rem;
   position: relative;
-  padding-left: 2rem;
 }
 
 h3::before {
-  content: '▶';
+  content: '▸';
   position: absolute;
   left: 0;
   color: var(--field-green);
-  font-size: 0.8em;
+}
+
+p {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.7;
 }
 
 /* ========================================
-   NEWSLETTER ARCHIVE - STADIUM STYLE
+   NEWSLETTER ARCHIVE - MOBILE OPTIMIZED
    ======================================== */
 
 .newsletter-list {
   list-style: none;
   padding: 0;
-  display: grid;
-  gap: 1.5rem;
   margin: 2rem 0;
+  display: grid;
+  gap: 1rem;
 }
 
 .newsletter-list li {
-  background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
-  border: 2px solid var(--field-light);
-  border-radius: 12px;
-  padding: 2rem;
+  background: var(--bg-white);
+  border: 2px solid #e0e0e0;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
   position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-}
-
-/* Stadium lighting effect */
-.newsletter-list li::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, var(--floodlight) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
 }
 
 .newsletter-list li::after {
   content: '🏟️';
   position: absolute;
-  right: 1.5rem;
+  right: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.5rem;
-  opacity: 0.7;
-  transition: all 0.4s ease;
+  font-size: 1.25rem;
+  opacity: 0.6;
 }
 
 .newsletter-list li:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 
-    0 20px 40px var(--shadow),
-    0 0 0 3px var(--field-green);
   border-color: var(--field-green);
-}
-
-.newsletter-list li:hover::before {
-  opacity: 0.05;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .newsletter-list li:hover::after {
-  transform: translateY(-50%) scale(1.2) rotate(5deg);
   opacity: 1;
 }
 
@@ -319,11 +260,9 @@ h3::before {
   display: block;
   text-decoration: none;
   color: var(--text-primary);
-  font-weight: 700;
-  font-size: 1.25rem;
-  position: relative;
-  z-index: 2;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding-right: 3rem;
 }
 
 .newsletter-list a:hover {
@@ -331,7 +270,7 @@ h3::before {
 }
 
 /* ========================================
-   TABLES - SCOREBOARD STYLE
+   TABLES - READABLE SCOREBOARDS
    ======================================== */
 
 table {
@@ -339,30 +278,30 @@ table {
   border-collapse: collapse;
   margin: 2rem 0;
   background: var(--bg-white);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 8px 24px var(--shadow);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.9rem;
 }
 
 th {
-  background: var(--scoreboard-gradient);
+  background: var(--bg-dark);
   color: var(--text-light);
-  padding: 1.5rem 1rem;
-  font-weight: 700;
+  padding: 1rem 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
+  font-size: 0.8rem;
   letter-spacing: 0.5px;
-  font-size: 0.9rem;
-  border-bottom: 3px solid var(--floodlight);
 }
 
 td {
-  padding: 1.25rem 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+  color: var(--text-primary);
 }
 
 tr:hover td {
-  background-color: rgba(25, 107, 26, 0.05);
+  background-color: rgba(76, 175, 80, 0.05);
 }
 
 tr:nth-child(even) td {
@@ -371,142 +310,117 @@ tr:nth-child(even) td {
 
 /* Ranking indicators */
 td:first-child {
-  font-weight: 800;
+  font-weight: 700;
   color: var(--field-green);
-  position: relative;
 }
 
-/* Top 3 rankings */
 tr:nth-child(1) td:first-child::before { content: '🥇 '; }
 tr:nth-child(2) td:first-child::before { content: '🥈 '; }
 tr:nth-child(3) td:first-child::before { content: '🥉 '; }
 
 /* ========================================
-   RESPONSIVE DESIGN
+   MOBILE OPTIMIZATION
    ======================================== */
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 4rem 1rem;
-    margin: 0 -1rem 3rem -1rem;
+    padding: 3rem 1rem 4rem;
+    margin-bottom: 2rem;
   }
   
   .main {
-    padding: 2rem 1rem;
-    border-radius: 12px 12px 0 0;
+    padding: 1.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: var(--radius-md);
   }
   
-  .newsletter-list li {
-    padding: 1.5rem;
+  .container {
+    padding: 0 0.5rem;
   }
   
   h2 {
     margin: 2rem 0 1.5rem;
+    font-size: 1.5rem;
   }
   
+  h3 {
+    font-size: 1.25rem;
+    margin: 1.5rem 0 1rem;
+    padding-left: 1rem;
+  }
+  
+  .newsletter-list li {
+    padding: 1.25rem;
+  }
+  
+  .newsletter-list a {
+    font-size: 1rem;
+    padding-right: 2.5rem;
+  }
+  
+  /* Mobile-friendly tables */
   table {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   
   th, td {
-    padding: 1rem 0.75rem;
+    padding: 0.5rem 0.4rem;
+  }
+  
+  /* Hide less important columns on very small screens */
+  @media (max-width: 480px) {
+    table th:nth-child(n+4),
+    table td:nth-child(n+4) {
+      display: none;
+    }
   }
 }
 
 @media (max-width: 480px) {
-  .hero-section::after {
-    top: 1rem;
-    right: 1rem;
-    font-size: 2rem;
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem;
   }
   
   .hero-badge {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-  }
-  
-  h3 {
-    padding-left: 1.5rem;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
   }
   
   .newsletter-list li::after {
-    right: 1rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    right: 0.75rem;
+  }
+  
+  .main {
+    margin: 0 0.25rem;
   }
 }
 
 /* ========================================
-   ANIMATIONS
+   UTILITY CLASSES
    ======================================== */
 
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+.text-center {
+  text-align: center;
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.text-muted {
+  color: var(--text-muted);
+  font-style: italic;
 }
-
-/* Page load animations */
-.hero-title { animation: slideUp 0.8s ease-out; }
-.hero-subtitle { animation: slideUp 0.8s ease-out 0.2s both; }
-.hero-badge { animation: slideUp 0.8s ease-out 0.4s both; }
 
 /* ========================================
-   SPECIAL CONTENT STYLING
+   LINKS AND INTERACTIVE ELEMENTS
    ======================================== */
 
-/* Highlight boxes for important content */
-blockquote {
-  background: linear-gradient(135deg, var(--field-light) 0%, var(--field-green) 100%);
-  color: var(--text-light);
-  border-left: 4px solid var(--floodlight);
-  padding: 2rem;
-  margin: 2rem 0;
-  border-radius: 8px;
-  position: relative;
-}
-
-blockquote::before {
-  content: '💬';
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.5rem;
-}
-
-/* Code blocks */
-pre, code {
-  background: var(--scoreboard);
-  color: var(--floodlight);
-  border-radius: 6px;
-}
-
-pre {
-  padding: 1.5rem;
-  overflow-x: auto;
-  border: 1px solid var(--stadium-concrete);
-}
-
-code {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.9em;
-}
-
-/* Links */
 a {
   color: var(--field-green);
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.2s ease;
 }
 
 a:hover {
@@ -515,19 +429,54 @@ a:hover {
 }
 
 /* ========================================
+   CONTENT STYLING
+   ======================================== */
+
+blockquote {
+  background: var(--bg-light);
+  border-left: 4px solid var(--field-green);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+}
+
+code {
+  background: var(--bg-light);
+  color: var(--text-primary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+}
+
+pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* ========================================
    FOOTER
    ======================================== */
 
 .footer {
-  background: var(--stadium-gradient);
+  background: var(--bg-dark);
   color: var(--text-light);
   text-align: center;
-  padding: 2rem;
-  margin-top: 4rem;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
 }
 
 .footer a {
-  color: var(--floodlight);
+  color: var(--accent-gold);
 }
 
 .footer a:hover {
