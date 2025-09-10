@@ -6,479 +6,201 @@ styles: true
 @import "alembic";
 
 /* ========================================
-   FANTASY FOOTBALL THEME - REFINED
-   Clean, readable, and mobile-first
+   SIMPLE FANTASY FOOTBALL THEME
+   Green & Yellow, Clean & Fun
    ======================================== */
 
-/* Color Palette - Refined Football Theme */
+/* Simple Color Palette */
 :root {
-  /* Primary colors - improved contrast */
-  --field-green: #1b5e20;
-  --field-light: #4caf50;
-  --field-dark: #0d3b0e;
-  
-  /* Neutral colors - better readability */
-  --text-primary: #212121;
-  --text-secondary: #424242;
-  --text-light: #ffffff;
-  --text-muted: #666666;
-  
-  /* Background colors */
-  --bg-white: #ffffff;
+  --fantasy-green: #2e7d32;
+  --fantasy-yellow: #ffc107;
+  --dark-green: #1b5e20;
+  --light-green: #4caf50;
+  --text-dark: #2c2c2c;
+  --text-light: #666;
   --bg-light: #f8f9fa;
-  --bg-dark: #2c2c2c;
-  
-  /* Accent colors */
-  --accent-gold: #ffa000;
-  --accent-blue: #1976d2;
-  
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
-  
-  /* Border radius */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  --white: #ffffff;
 }
 
-/* ========================================
-   GLOBAL STYLES
-   ======================================== */
-
+/* Override Alembic defaults */
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--bg-light);
-  color: var(--text-primary);
-  line-height: 1.6;
-  font-size: 16px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text-dark);
 }
 
 /* ========================================
-   HEADER - SIMPLIFIED
-   ======================================== */
-
-.header {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  padding: 1rem 0;
-  box-shadow: var(--shadow-sm);
-}
-
-.header .logo {
-  color: var(--text-light) !important;
-  font-weight: 700;
-  font-size: 1.25rem;
-}
-
-.header .nav a {
-  color: var(--text-light) !important;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-sm);
-  transition: background-color 0.2s ease;
-}
-
-.header .nav a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* ========================================
-   HERO SECTION - CLEANER DESIGN
+   HERO SECTION - SIMPLE & BOLD
    ======================================== */
 
 .hero-section {
-  background: linear-gradient(135deg, var(--field-green) 0%, var(--field-dark) 100%);
-  color: var(--text-light);
-  padding: 4rem 1rem 5rem;
+  background: var(--fantasy-green);
+  color: var(--white);
+  padding: 3rem 1rem;
   text-align: center;
-  position: relative;
-  margin-bottom: 3rem;
-}
-
-/* Subtle field texture */
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 120px,
-      rgba(255, 255, 255, 0.05) 120px,
-      rgba(255, 255, 255, 0.05) 124px
-    );
-  opacity: 0.7;
+  margin-bottom: 2rem;
 }
 
 .hero-title {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 800;
+  font-size: 2.5rem;
+  font-weight: bold;
   margin-bottom: 1rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 2;
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  margin: 0 auto 2rem;
-  max-width: 600px;
-  opacity: 0.95;
-  position: relative;
-  z-index: 2;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
 }
 
 .hero-badge {
-  display: inline-block;
-  background: var(--accent-gold);
-  color: var(--bg-dark);
-  font-weight: 700;
+  background: var(--fantasy-yellow);
+  color: var(--text-dark);
   padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-md);
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  position: relative;
-  z-index: 2;
-  box-shadow: var(--shadow-md);
-}
-
-/* ========================================
-   MAIN CONTENT
-   ======================================== */
-
-.main {
-  background: var(--bg-white);
-  border-radius: var(--radius-lg);
-  padding: 2rem 1.5rem;
-  margin: 0 auto;
-  box-shadow: var(--shadow-sm);
-  position: relative;
-}
-
-/* ========================================
-   TYPOGRAPHY - IMPROVED CONTRAST
-   ======================================== */
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-primary);
-  font-weight: 700;
-  line-height: 1.3;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-h2 {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  color: var(--field-green);
-  text-align: center;
-  margin: 2.5rem 0 2rem;
-  position: relative;
-}
-
-h2::before {
-  content: '🏈';
-  margin-right: 0.5rem;
-  font-size: 0.8em;
-}
-
-h3 {
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
-  color: var(--field-dark);
-  margin: 2rem 0 1rem;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-h3::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--field-green);
-}
-
-p {
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-/* ========================================
-   NEWSLETTER ARCHIVE - MOBILE OPTIMIZED
-   ======================================== */
-
-.newsletter-list {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0;
-  display: grid;
-  gap: 1rem;
-}
-
-.newsletter-list li {
-  background: var(--bg-white);
-  border: 2px solid #e0e0e0;
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.newsletter-list li::after {
-  content: '🏟️';
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.25rem;
-  opacity: 0.6;
-}
-
-.newsletter-list li:hover {
-  border-color: var(--field-green);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.newsletter-list li:hover::after {
-  opacity: 1;
-}
-
-.newsletter-list a {
-  display: block;
-  text-decoration: none;
-  color: var(--text-primary);
-  font-weight: 600;
-  font-size: 1.1rem;
-  padding-right: 3rem;
-}
-
-.newsletter-list a:hover {
-  color: var(--field-green);
-}
-
-/* ========================================
-   TABLES - READABLE SCOREBOARDS
-   ======================================== */
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
-  background: var(--bg-white);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  font-size: 0.9rem;
-}
-
-th {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  padding: 1rem 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
-}
-
-td {
-  padding: 0.75rem;
-  border-bottom: 1px solid #e0e0e0;
-  color: var(--text-primary);
-}
-
-tr:hover td {
-  background-color: rgba(76, 175, 80, 0.05);
-}
-
-tr:nth-child(even) td {
-  background-color: var(--bg-light);
-}
-
-/* Ranking indicators */
-td:first-child {
-  font-weight: 700;
-  color: var(--field-green);
-}
-
-tr:nth-child(1) td:first-child::before { content: '🥇 '; }
-tr:nth-child(2) td:first-child::before { content: '🥈 '; }
-tr:nth-child(3) td:first-child::before { content: '🥉 '; }
-
-/* ========================================
-   MOBILE OPTIMIZATION
-   ======================================== */
-
-@media (max-width: 768px) {
-  .hero-section {
-    padding: 3rem 1rem 4rem;
-    margin-bottom: 2rem;
-  }
-  
-  .main {
-    padding: 1.5rem 1rem;
-    margin: 0 0.5rem;
-    border-radius: var(--radius-md);
-  }
-  
-  .container {
-    padding: 0 0.5rem;
-  }
-  
-  h2 {
-    margin: 2rem 0 1.5rem;
-    font-size: 1.5rem;
-  }
-  
-  h3 {
-    font-size: 1.25rem;
-    margin: 1.5rem 0 1rem;
-    padding-left: 1rem;
-  }
-  
-  .newsletter-list li {
-    padding: 1.25rem;
-  }
-  
-  .newsletter-list a {
-    font-size: 1rem;
-    padding-right: 2.5rem;
-  }
-  
-  /* Mobile-friendly tables */
-  table {
-    font-size: 0.8rem;
-  }
-  
-  th, td {
-    padding: 0.5rem 0.4rem;
-  }
-  
-  /* Hide less important columns on very small screens */
-  @media (max-width: 480px) {
-    table th:nth-child(n+4),
-    table td:nth-child(n+4) {
-      display: none;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.75rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 0.95rem;
-  }
-  
-  .hero-badge {
-    padding: 0.6rem 1.25rem;
-    font-size: 0.85rem;
-  }
-  
-  .newsletter-list li::after {
-    font-size: 1rem;
-    right: 0.75rem;
-  }
-  
-  .main {
-    margin: 0 0.25rem;
-  }
-}
-
-/* ========================================
-   UTILITY CLASSES
-   ======================================== */
-
-.text-center {
-  text-align: center;
-}
-
-.text-muted {
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-/* ========================================
-   LINKS AND INTERACTIVE ELEMENTS
-   ======================================== */
-
-a {
-  color: var(--field-green);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-a:hover {
-  color: var(--field-dark);
-  text-decoration: underline;
+  border-radius: 25px;
+  font-weight: bold;
+  display: inline-block;
 }
 
 /* ========================================
    CONTENT STYLING
    ======================================== */
 
-blockquote {
-  background: var(--bg-light);
-  border-left: 4px solid var(--field-green);
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
+h2 {
+  color: var(--fantasy-green);
+  font-weight: bold;
+  margin: 2rem 0 1rem;
+  text-align: center;
 }
 
-code {
-  background: var(--bg-light);
-  color: var(--text-primary);
-  padding: 0.2rem 0.4rem;
-  border-radius: 3px;
-  font-size: 0.9em;
-}
-
-pre {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  padding: 1rem;
-  border-radius: var(--radius-sm);
-  overflow-x: auto;
-}
-
-pre code {
-  background: none;
-  color: inherit;
-  padding: 0;
+h3 {
+  color: var(--dark-green);
+  font-weight: bold;
+  margin: 1.5rem 0 1rem;
 }
 
 /* ========================================
-   FOOTER
+   NEWSLETTER LIST - SIMPLE CARDS
    ======================================== */
 
-.footer {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 3rem;
+.newsletter-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
 }
 
-.footer a {
-  color: var(--accent-gold);
+.newsletter-list li {
+  background: var(--white);
+  border: 2px solid var(--bg-light);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  transition: border-color 0.2s ease;
 }
 
-.footer a:hover {
-  color: var(--text-light);
+.newsletter-list li:hover {
+  border-color: var(--fantasy-yellow);
+}
+
+.newsletter-list a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.newsletter-list a:hover {
+  color: var(--fantasy-green);
+}
+
+/* ========================================
+   TABLES - SIMPLE SCOREBOARDS
+   ======================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background: var(--fantasy-green);
+  color: var(--white);
+  padding: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--bg-light);
+}
+
+tr:hover td {
+  background: rgba(255, 193, 7, 0.1);
+}
+
+/* Highlight top 3 */
+tr:nth-child(1) td:first-child { 
+  background: var(--fantasy-yellow);
+  font-weight: bold;
+}
+
+tr:nth-child(2) td:first-child,
+tr:nth-child(3) td:first-child { 
+  background: rgba(255, 193, 7, 0.3);
+  font-weight: bold;
+}
+
+/* ========================================
+   LINKS & BUTTONS
+   ======================================== */
+
+a {
+  color: var(--fantasy-green);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--dark-green);
+  text-decoration: underline;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .newsletter-list li {
+    padding: 1rem;
+  }
+  
+  th, td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  table {
+    font-size: 0.8rem;
+  }
 }
