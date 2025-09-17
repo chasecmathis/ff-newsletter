@@ -5,7 +5,7 @@ week: 2
 year: 2025
 date: 2025-09-16
 permalink: /newsletters/2025/week_2/
-categories: 2025
+categories: [season_2025]
 feature_text: |
   ## Week 2 Fantasy Report 🏈
   Hype Trains, Heartbreak, Matchups, and More!

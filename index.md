@@ -29,22 +29,6 @@ excerpt: "Weekly fantasy football analysis and power rankings"
 *No newsletters yet for the 2025 season. Check back soon!*
 {% endif %}
 
-### 2024 Season  
-{% assign newsletters_2024 = site.pages | where_exp: "page", "page.path contains 'newsletters/2024'" | sort: "path" %}
-{% if newsletters_2024.size > 0 %}
-<ul class="newsletter-list">
-  {% for newsletter in newsletters_2024 %}
-  <li>
-    <a href="{{ newsletter.url | relative_url }}">
-      {{ newsletter.title | default: newsletter.name }}
-    </a>
-  </li>
-  {% endfor %}
-</ul>
-{% else %}
-*No newsletters available for the 2024 season.*
-{% endif %}
-
 ---
 
 *Newsletters are automatically updated weekly during the season.*
