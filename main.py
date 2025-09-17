@@ -213,7 +213,7 @@ def generate_newsletter(current_week, year, api_key):
     try:
         response = model.generate_content(prompt)
         front_matter = f"""---
-layout: default
+layout: post
 title: "Week {current_week}"
 week: {current_week}
 year: {year}

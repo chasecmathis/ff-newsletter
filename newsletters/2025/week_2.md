@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Week 2"
 week: 2
 year: 2025
