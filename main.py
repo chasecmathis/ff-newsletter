@@ -187,8 +187,7 @@ Write a fun 1000-1400 word newsletter that:
 1. Has an engaging title that captures the season's storylines and league context ({league_context})
 2. Displays the current standings and power rankings in nicely formatted tables
 3. Analyzes current standings and power rankings with humor, considering the league context
-4. Reviews the current week's matchups and starting lineups with commentary
-5. Highlights bench performances and lineup decisions (who started the wrong players?)
+4. Reviews the current week's matchups and lineups with commentary
 6. Reviews trends and patterns from previous weeks (close games, blowouts, consistency)
 7. Includes team-specific analysis and friendly trash talk
 8. If playoff context: emphasize playoff implications, elimination scenarios, and championship hopes
