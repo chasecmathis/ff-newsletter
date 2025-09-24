@@ -14,8 +14,6 @@ excerpt: "Week 3 of the 2025 season recap with all the drama, surprises, and fan
 
 ## The Weekly Whistle: Week 3 - Is 3-0 the New 0-0, or Just a Fancy Mirage?
 
-**Date:** September 25, 2025
-
 Greetings, esteemed purveyors of gridiron glory and despair!
 
 Welcome back to The Weekly Whistle, your trusted (and totally biased) source for all things fantasy in our esteemed league. We’re officially three weeks deep into the 2025 season, and the early narratives are taking shape faster than a waiver wire claim on a backup RB. Are we seeing true contenders emerge, or are these just glorious mirages shimmering under the early autumn sun? Grab your preferred beverage, settle in, and let's dissect the chaos!
