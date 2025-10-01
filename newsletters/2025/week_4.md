@@ -12,11 +12,11 @@ feature_text: |
 excerpt: "Week 4 of the 2025 season recap with all the drama, surprises, and fantasy insights you need."
 ---
 
-## The Weekly Whistle: Week 4 – The Plot Thickens, The Panic Begins, and Mike Evans Is a Ghost?!
+## The Weekly Whistle: Week 4 – The Plot Thickens, The Panic Begins, and Injuries Strike!
 
 Greetings, fellow gridiron gurus and fantasy fanatics!
 
-Welcome back to The Weekly Whistle, your trusted (and highly opinionated) source for all things *[League Name]* fantasy football. Week 4, 2025, is in the books, and if you thought the early season jitters were over, you clearly haven't been paying attention. We're past the "feeling each other out" phase and officially into the "OMG, what did I do to my team?!" existential crisis territory for some. Others? Well, they're probably already scouting Championship Week talent.
+Welcome back to The Weekly Whistle, your trusted (and highly opinionated) source for all things Privacy Project fantasy football. Week 4, 2025, is in the books, and if you thought the early season jitters were over, you clearly haven't been paying attention. We're past the "feeling each other out" phase and officially into the "OMG, what did I do to my team?!" existential crisis territory for some. Others? Well, they're probably already scouting Championship Week talent.
 
 The regular season is a marathon, not a sprint, but some of you are already looking like you stopped for a hotdog at mile 2. Let's dive into the chaos, the triumphs, and the utterly baffling decisions of Week 4!
 
