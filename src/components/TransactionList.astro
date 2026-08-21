@@ -1,0 +1,54 @@
+---
+import { teamUrl } from "../lib/url";
+import type { Facts } from "../lib/schema";
+
+/** Only executed moves reach here — canceled and failed claims never happened. */
+interface Props { transactions: Facts["transactions"]; year: number; available?: boolean }
+const { transactions, year, available = true } = Astro.props;
+const label: Record<string, string> = {
+  WAIVER: "Waiver",
+  FREEAGENT: "Free agent",
+  TRADE_ACCEPT: "Trade",
+};
+---
+{!available ? (
+  <p class="font-mono text-sm text-ink-soft">
+    ESPN did not return roster moves for this week, so we do not know what changed.
+  </p>
+) : transactions.length === 0 ? (
+  <p class="font-mono text-sm text-ink-soft">A quiet week. Nobody touched their roster.</p>
+) : (
+  <div class="scroll-x">
+    <table class="w-full border-collapse text-left min-w-[30rem]">
+      <tbody>
+        {transactions.map((t) => (
+          <tr class="border-b hairline last:border-0">
+            <td class="py-2.5 pr-4 align-top w-24">
+              <span class:list={[
+                "font-mono text-[0.625rem] font-semibold tracking-[0.14em] uppercase",
+                t.type === "TRADE_ACCEPT" ? "text-flag" : "text-ink-soft",
+              ]}>{label[t.type] ?? t.type}</span>
+            </td>
+            <td class="py-2.5 pr-4 align-top">
+              {t.teamId !== null ? (
+                <a href={teamUrl(year, t.teamId)} class="no-underline text-sm font-medium hover:text-flag">
+                  {t.teamName}
+                </a>
+              ) : (
+                <span class="text-sm">{t.teamName}</span>
+              )}
+            </td>
+            <td class="py-2.5 align-top text-sm">
+              {t.adds.length > 0 && (
+                <div><span class="text-turf font-mono text-xs">+</span> {t.adds.map((a) => a.name).join(", ")}</div>
+              )}
+              {t.drops.length > 0 && (
+                <div class="text-ink-soft"><span class="text-flag font-mono text-xs">−</span> {t.drops.map((d) => d.name).join(", ")}</div>
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}

@@ -1,8 +1,17 @@
-# Environment files
+# Secrets
 .env
 
-# Python virtual environments
+# Python
 venv/
+.venv/
+__pycache__/
+*.egg-info/
 
-# Pycharm files
+# Node / Astro
+node_modules/
+dist/
+.astro/
+
+# Editors / OS
 .idea/
+.DS_Store

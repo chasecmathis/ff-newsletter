@@ -1,0 +1,74 @@
+---
+import "../styles/global.css";
+import { url } from "../lib/url";
+import { seasons } from "../lib/data";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Weekly newsletter and stats for a home fantasy football league." } = Astro.props;
+const currentSeason = seasons[0];
+const nav = [
+  { label: "Weeks", href: url("/") },
+  { label: "Teams", href: url(`/teams/${currentSeason}/`) },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b0d0c" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🏈</text></svg>" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="border-b hairline">
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-8 py-5 flex items-baseline justify-between gap-6">
+        <a href={url("/")} class="no-underline group">
+          <span class="eyebrow block mb-1">The Privacy Project</span>
+          <span class="display text-2xl sm:text-3xl group-hover:text-flag transition-colors">
+            Pressbox
+          </span>
+        </a>
+        <nav class="flex gap-5 sm:gap-7">
+          {nav.map((item) => (
+            <a
+              href={item.href}
+              class="font-mono text-[0.6875rem] font-semibold tracking-[0.22em] uppercase no-underline hover:text-flag"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-1 w-full">
+      <slot />
+    </main>
+
+    <footer class="board mt-24">
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-8 py-10">
+        <div class="yardline-labeled mb-6 text-paper">
+          <span>10 · 20 · 30 · 20 · 10</span>
+        </div>
+        <div class="flex flex-wrap items-baseline justify-between gap-4">
+          <p class="board-label !text-[0.625rem]">
+            Written weekly · reviewed by a human before it ships
+          </p>
+          <p class="font-mono text-xs text-paper/40">
+            {seasons.length} season{seasons.length === 1 ? "" : "s"} on file
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

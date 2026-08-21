@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Wrapper so you can run ./ffnews from the repo root without activating
+# anything or putting the venv on your PATH. Resolves its own location, so
+# renaming or moving the repo does not break it.
+set -euo pipefail
+
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+venv="$here/pipeline/.venv"
+
+if [[ ! -x "$venv/bin/ffnews" ]]; then
+  echo "The pipeline isn't installed yet. Run:" >&2
+  echo "    cd '$here/pipeline' && uv sync" >&2
+  exit 1
+fi
+
+exec "$venv/bin/ffnews" "$@"

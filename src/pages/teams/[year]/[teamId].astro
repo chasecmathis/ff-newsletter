@@ -1,0 +1,189 @@
+---
+import Base from "../../../layouts/Base.astro";
+import YardLine from "../../../components/YardLine.astro";
+import StatPanel from "../../../components/StatPanel.astro";
+import Sparkline from "../../../components/Sparkline.astro";
+import {
+  seasons, latestFacts, allFacts, teamScoreSeries, teamResults, snapshotFor,
+} from "../../../lib/data";
+import { teamUrl, weekUrl } from "../../../lib/url";
+
+export function getStaticPaths() {
+  return seasons.flatMap((year) => {
+    const facts = latestFacts(year);
+    if (!facts) return [];
+    return facts.standings.map((row) => ({
+      params: { year: String(year), teamId: String(row.teamId) },
+    }));
+  });
+}
+
+const year = Number(Astro.params.year);
+const teamId = Number(Astro.params.teamId);
+const facts = latestFacts(year)!;
+
+const standing = facts.standings.find((r) => r.teamId === teamId)!;
+const allPlay = facts.allPlay.find((r) => r.teamId === teamId)!;
+const series = teamScoreSeries(year, teamId);
+const results = teamResults(year, teamId);
+
+const seasonFacts = allFacts.filter((f) => f.year === year);
+const avg = series.length ? series.reduce((s, p) => s + p.score, 0) / series.length : 0;
+const best = series.length ? Math.max(...series.map((p) => p.score)) : 0;
+const worst = series.length ? Math.min(...series.map((p) => p.score)) : 0;
+
+// Lineup efficiency across the season: how much this manager left on the bench.
+const effRows = seasonFacts
+  .map((f) => f.efficiency.find((e) => e.teamId === teamId))
+  .filter((e): e is NonNullable<typeof e> => Boolean(e));
+const wastedTotal = effRows.reduce((s, e) => s + e.pointsLeftOnBench, 0);
+const avgEff = effRows.length ? effRows.reduce((s, e) => s + e.efficiencyPct, 0) / effRows.length : 0;
+
+// Current roster, from the most recent week's snapshot.
+const snapshot = snapshotFor(year, facts.week);
+const side = snapshot?.matchups
+  .flatMap((m) => [m.home, m.away])
+  .find((s) => s.teamId === teamId);
+const roster = (side?.lineup ?? []).slice().sort((a, b) => Number(b.started) - Number(a.started) || b.points - a.points);
+
+const moves = seasonFacts
+  .slice()
+  .sort((a, b) => b.week - a.week)
+  .flatMap((f) => f.transactions.filter((t) => t.teamId === teamId).map((t) => ({ ...t, week: f.week })));
+---
+
+<Base title={`${standing.name} — ${year}`}>
+  <header class="relative overflow-hidden border-b hairline">
+    <span class="jersey absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 text-[13rem] sm:text-[18rem] pointer-events-none"
+      aria-hidden="true">{String(standing.rank).padStart(2, "0")}</span>
+    <div class="relative mx-auto w-full max-w-6xl px-5 sm:px-8 py-12 sm:py-16">
+      <p class="eyebrow mb-3">
+        {year} · {standing.record} · {standing.rank} of {facts.teamCount}
+      </p>
+      <h1 class="text-4xl sm:text-6xl mb-4 max-w-3xl">{standing.name}</h1>
+      <div class="text-ink-soft"><Sparkline points={series} height={52} class="!max-w-[16rem]" /></div>
+    </div>
+  </header>
+
+  <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
+    <div class="grid gap-3 grid-cols-2 lg:grid-cols-4 -mt-6 relative z-10">
+      <StatPanel index={0} label="Points for" value={standing.pointsFor.toFixed(1)} sub={`${avg.toFixed(1)} per week`} />
+      <StatPanel index={1} label="All-play" value={allPlay.allPlayRecord}
+        sub={`${(allPlay.allPlayPct * 100).toFixed(0)}% against the field`} />
+      <StatPanel index={2} label="Luck" value={`${allPlay.luck > 0 ? "+" : ""}${allPlay.luck.toFixed(1)}`}
+        flag={allPlay.luck > 0}
+        sub={Math.abs(allPlay.luck) < 0.75
+          ? "Record is what the scores earned"
+          : allPlay.luck < 0
+            ? "Deserved a better record"
+            : "Winning more than the scores earned"} />
+      <StatPanel index={3} label="Lineup efficiency" value={`${avgEff.toFixed(0)}%`}
+        sub={`${wastedTotal.toFixed(0)} points left on the bench all season`} />
+    </div>
+
+    <div class="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_20rem] mt-14">
+      <div class="min-w-0">
+        <h2 class="eyebrow mb-4">Week by week</h2>
+        <div class="scroll-x">
+          <table class="w-full border-collapse text-left min-w-[32rem]">
+            <thead>
+              <tr class="border-b-2 hairline">
+                {["Wk", "", "For", "Agst", "Opponent"].map((h, i) => (
+                  <th class:list={["eyebrow pb-2 font-normal", (i === 2 || i === 3) && "text-right", i === 3 && "pl-4"]}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody class="tabular">
+              {results.map((r) => (
+                <tr class="border-b hairline hover:bg-paper-deep/60 transition-colors">
+                  <td class="py-2.5">
+                    <a href={weekUrl(year, r.week)} class="font-display text-lg text-ink/30 no-underline hover:!text-flag">
+                      {String(r.week).padStart(2, "0")}
+                    </a>
+                  </td>
+                  <td class="py-2.5 w-8">
+                    <span class:list={[
+                      "font-mono text-xs font-semibold",
+                      r.tied ? "text-ink-soft" : r.won ? "text-turf" : "text-flag",
+                    ]}>{r.tied ? "T" : r.won ? "W" : "L"}</span>
+                  </td>
+                  <td class="py-2.5 text-right font-mono text-sm font-semibold">{r.score.toFixed(1)}</td>
+                  <td class="py-2.5 pl-4 text-right font-mono text-sm text-ink-soft">{r.opponentScore.toFixed(1)}</td>
+                  <td class="py-2.5 pl-4">
+                    <a href={teamUrl(year, r.opponentId)} class="no-underline text-sm hover:text-flag">{r.opponentName}</a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <YardLine label={`Roster · as of week ${facts.week}`} />
+        <div class="scroll-x">
+          <table class="w-full border-collapse text-left min-w-[30rem]">
+            <thead>
+              <tr class="border-b-2 hairline">
+                {["Slot", "Player", "NFL", "Pts", "Proj"].map((h, i) => (
+                  <th class:list={["eyebrow pb-2 font-normal", i >= 3 && "text-right"]}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody class="tabular">
+              {roster.map((p) => (
+                <tr class:list={["border-b hairline", !p.started && "text-ink-soft"]}>
+                  <td class="py-2 pr-3">
+                    <span class:list={[
+                      "font-mono text-[0.625rem] font-semibold tracking-wider",
+                      p.started ? "text-flag" : "text-ink/35",
+                    ]}>{p.slot}</span>
+                  </td>
+                  <td class="py-2 pr-3">
+                    <span class:list={["text-sm", p.started && "font-medium text-ink"]}>{p.name}</span>
+                    {p.injuryStatus && p.injuryStatus !== "ACTIVE" && (
+                      <span class="ml-2 font-mono text-[0.5625rem] tracking-wider text-flag uppercase">
+                        {p.injuryStatus.slice(0, 3)}
+                      </span>
+                    )}
+                  </td>
+                  <td class="py-2 pr-3 font-mono text-xs text-ink-soft">{p.proTeam}</td>
+                  <td class="py-2 text-right font-mono text-sm">{p.points.toFixed(1)}</td>
+                  <td class="py-2 text-right font-mono text-sm text-ink-soft">{p.projected.toFixed(1)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="min-w-0">
+        <h2 class="eyebrow mb-3">Scoring range</h2>
+        <div class="space-y-3 mb-10">
+          <StatPanel label="Best week" value={best.toFixed(1)} flag />
+          <StatPanel label="Worst week" value={worst.toFixed(1)} />
+        </div>
+
+        <h2 class="eyebrow mb-3">Every move</h2>
+        {moves.length === 0 ? (
+          <p class="font-mono text-sm text-ink-soft">Never touched the roster.</p>
+        ) : (
+          <ul class="space-y-2.5">
+            {moves.map((t) => (
+              <li class="border-b hairline pb-2.5 last:border-0">
+                <div class="flex items-baseline gap-2 mb-0.5">
+                  <a href={weekUrl(year, t.week)} class="font-mono text-[0.625rem] tracking-wider text-ink-soft no-underline hover:text-flag">
+                    WK{String(t.week).padStart(2, "0")}
+                  </a>
+                  <span class="font-mono text-[0.5625rem] tracking-[0.14em] uppercase text-ink/40">
+                    {t.type === "TRADE_ACCEPT" ? "Trade" : t.type === "WAIVER" ? "Waiver" : "FA"}
+                  </span>
+                </div>
+                {t.adds.length > 0 && <div class="text-sm"><span class="text-turf font-mono text-xs">+</span> {t.adds.map((a) => a.name).join(", ")}</div>}
+                {t.drops.length > 0 && <div class="text-sm text-ink-soft"><span class="text-flag font-mono text-xs">−</span> {t.drops.map((d) => d.name).join(", ")}</div>}
+              </li>
+            ))}
+          </ul>
+        )}
+      </aside>
+    </div>
+  </div>
+</Base>

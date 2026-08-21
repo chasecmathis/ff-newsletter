@@ -1,0 +1,144 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../../layouts/Base.astro";
+import YardLine from "../../../components/YardLine.astro";
+import StatPanel from "../../../components/StatPanel.astro";
+import MatchupCard from "../../../components/MatchupCard.astro";
+import PositionLeaders from "../../../components/PositionLeaders.astro";
+import BenchBlunders from "../../../components/BenchBlunders.astro";
+import TransactionList from "../../../components/TransactionList.astro";
+import StandingsTable from "../../../components/StandingsTable.astro";
+import AllPlayTable from "../../../components/AllPlayTable.astro";
+import { allFacts } from "../../../lib/data";
+import { weekUrl } from "../../../lib/url";
+
+/**
+ * URL matches the old Jekyll permalink (/newsletters/2025/week_6/) so every
+ * link the league has already shared keeps working.
+ */
+export async function getStaticPaths() {
+  const published = await getCollection("newsletters", (e) => e.data.status === "published");
+  return allFacts.map((facts) => ({
+    params: { year: String(facts.year), week: String(facts.week) },
+    props: {
+      facts,
+      entry: published.find((e) => e.data.year === facts.year && e.data.week === facts.week),
+    },
+  }));
+}
+
+const { facts, entry } = Astro.props;
+const { Content } = entry ? await render(entry) : { Content: null };
+
+const weeks = allFacts.filter((f) => f.year === facts.year).map((f) => f.week).sort((a, b) => a - b);
+const idx = weeks.indexOf(facts.week);
+const prev = idx > 0 ? weeks[idx - 1] : null;
+const next = idx < weeks.length - 1 ? weeks[idx + 1] : null;
+
+const boom = facts.projections.biggestBoom;
+const bust = facts.projections.biggestBust;
+const title = entry?.data.title ?? `Week ${facts.week}`;
+---
+
+<Base title={`${title} — Week ${facts.week}, ${facts.year}`}>
+  <article>
+    <header class="relative overflow-hidden border-b hairline">
+      <span
+        class="jersey absolute -left-5 sm:-left-8 top-1/2 -translate-y-1/2 text-[15rem] sm:text-[22rem] pointer-events-none"
+        aria-hidden="true">{String(facts.week).padStart(2, "0")}</span>
+      <div class="relative mx-auto w-full max-w-6xl px-5 sm:px-8 py-12 sm:py-16">
+        <p class="eyebrow mb-3">
+          {facts.year} · Week {facts.week}
+          {entry && <> · {entry.data.date.toLocaleDateString("en-US", { month: "long", day: "numeric" })}</>}
+        </p>
+        <h1 class="text-4xl sm:text-6xl max-w-4xl">{title}</h1>
+      </div>
+    </header>
+
+    <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
+      <div class="grid gap-3 grid-cols-2 lg:grid-cols-4 -mt-6 relative z-10">
+        <StatPanel index={0} label="High score" value={facts.highestTeam.score.toFixed(1)} sub={facts.highestTeam.name} />
+        <StatPanel index={1} label="Low score" value={facts.lowestTeam.score.toFixed(1)} sub={facts.lowestTeam.name} />
+        <StatPanel index={2} label="Closest game" value={facts.closestGame.margin.toFixed(1)}
+          sub={`${facts.closestGame.winnerName} over ${facts.closestGame.loserName}`} />
+        <StatPanel index={3} label="Biggest rout" value={facts.biggestBlowout.margin.toFixed(1)}
+          sub={`${facts.biggestBlowout.winnerName} over ${facts.biggestBlowout.loserName}`} />
+      </div>
+
+      <!-- Prose left, stats right: the paper column and the board rail. -->
+      <div class="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_20rem] mt-14">
+        <div class="min-w-0">
+          {Content ? (
+            <div class="prose-newsletter max-w-[62ch]"><Content /></div>
+          ) : (
+            <div class="border hairline p-6">
+              <p class="eyebrow mb-2">No newsletter for this week</p>
+              <p class="prose-newsletter text-ink-soft !text-base m-0">
+                The data is all here. The write-up either was never drafted or is still
+                sitting in review.
+              </p>
+            </div>
+          )}
+
+          <YardLine label="Every result" />
+          <div class="grid gap-3 sm:grid-cols-2">
+            {facts.matchups.map((m, i) => <MatchupCard matchup={m} year={facts.year} index={i} />)}
+          </div>
+
+          <YardLine label="Points left on the bench" />
+          <BenchBlunders efficiency={facts.efficiency} year={facts.year} />
+
+          <YardLine label="Best and worst at each spot" />
+          <PositionLeaders leaders={facts.positionLeaders} />
+
+          <YardLine label="Roster moves this week" />
+          <TransactionList transactions={facts.transactions} year={facts.year} available={facts.transactionsAvailable} />
+        </div>
+
+        <aside class="min-w-0 space-y-10">
+          {(boom || bust) && (
+            <section>
+              <h2 class="eyebrow mb-3">Against projection</h2>
+              <div class="space-y-3">
+                {boom && (
+                  <StatPanel flag label="Overperformed" value={`+${boom.delta.toFixed(1)}`}
+                    sub={`${boom.name} scored ${boom.points.toFixed(1)} on a ${boom.projected.toFixed(1)} projection for ${boom.teamName}`} />
+                )}
+                {bust && (
+                  <StatPanel label="Underperformed" value={bust.delta.toFixed(1)}
+                    sub={`${bust.name} scored ${bust.points.toFixed(1)} on a ${bust.projected.toFixed(1)} projection for ${bust.teamName}`} />
+                )}
+              </div>
+            </section>
+          )}
+
+          <section>
+            <h2 class="eyebrow mb-3">Standings</h2>
+            <StandingsTable rows={facts.standings} year={facts.year} playoffSpots={facts.playoffTeamCount} compact />
+          </section>
+
+          <section>
+            <h2 class="eyebrow mb-3">True strength</h2>
+            <AllPlayTable rows={facts.allPlay} year={facts.year} />
+          </section>
+        </aside>
+      </div>
+
+      <YardLine class="mt-16" />
+      <nav class="flex justify-between gap-4 pb-4">
+        {prev ? (
+          <a href={weekUrl(facts.year, prev)} class="no-underline group">
+            <span class="eyebrow block mb-1">← Previous</span>
+            <span class="display text-xl group-hover:text-flag transition-colors">Week {prev}</span>
+          </a>
+        ) : <span />}
+        {next && (
+          <a href={weekUrl(facts.year, next)} class="no-underline group text-right">
+            <span class="eyebrow block mb-1">Next →</span>
+            <span class="display text-xl group-hover:text-flag transition-colors">Week {next}</span>
+          </a>
+        )}
+      </nav>
+    </div>
+  </article>
+</Base>

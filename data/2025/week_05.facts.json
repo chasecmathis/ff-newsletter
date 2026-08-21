@@ -1,0 +1,1616 @@
+{
+  "year": 2025,
+  "week": 5,
+  "leagueName": "The Privacy Project",
+  "teamCount": 12,
+  "playoffTeamCount": 4,
+  "regularSeasonWeeks": 13,
+  "standings": [
+    {
+      "teamId": 1,
+      "wins": 3,
+      "losses": 2,
+      "ties": 0,
+      "pointsFor": 650.28,
+      "pointsAgainst": 668.76,
+      "name": "Team Gang of Platipy",
+      "streak": "L1",
+      "record": "3-2",
+      "rank": 1
+    },
+    {
+      "teamId": 3,
+      "wins": 3,
+      "losses": 2,
+      "ties": 0,
+      "pointsFor": 623.76,
+      "pointsAgainst": 542.42,
+      "name": "Finding Deebo",
+      "streak": "W1",
+      "record": "3-2",
+      "rank": 2
+    },
+    {
+      "teamId": 8,
+      "wins": 3,
+      "losses": 2,
+      "ties": 0,
+      "pointsFor": 617.96,
+      "pointsAgainst": 576.4,
+      "name": "Vegas Vikings",
+      "streak": "W3",
+      "record": "3-2",
+      "rank": 3
+    },
+    {
+      "teamId": 13,
+      "wins": 3,
+      "losses": 2,
+      "ties": 0,
+      "pointsFor": 610.56,
+      "pointsAgainst": 596.96,
+      "name": "hit it fergie \ud83d\udd7a",
+      "streak": "W1",
+      "record": "3-2",
+      "rank": 4
+    },
+    {
+      "teamId": 9,
+      "wins": 3,
+      "losses": 2,
+      "ties": 0,
+      "pointsFor": 566.76,
+      "pointsAgainst": 586.78,
+      "name": "Team Kirkland",
+      "streak": "W3",
+      "record": "3-2",
+      "rank": 5
+    },
+    {
+      "teamId": 10,
+      "wins": 3,
+      "losses": 2,
+      "ties": 0,
+      "pointsFor": 558.02,
+      "pointsAgainst": 514.46,
+      "name": "Dillon Panthers",
+      "streak": "L1",
+      "record": "3-2",
+      "rank": 6
+    },
+    {
+      "teamId": 12,
+      "wins": 3,
+      "losses": 2,
+      "ties": 0,
+      "pointsFor": 553.28,
+      "pointsAgainst": 555.28,
+      "name": "Puka-chu",
+      "streak": "L2",
+      "record": "3-2",
+      "rank": 7
+    },
+    {
+      "teamId": 6,
+      "wins": 3,
+      "losses": 2,
+      "ties": 0,
+      "pointsFor": 545.24,
+      "pointsAgainst": 540.22,
+      "name": "Poboy Pumbas",
+      "streak": "W2",
+      "record": "3-2",
+      "rank": 8
+    },
+    {
+      "teamId": 14,
+      "wins": 2,
+      "losses": 3,
+      "ties": 0,
+      "pointsFor": 634.22,
+      "pointsAgainst": 613.26,
+      "name": "Never Gonna Gibbs You Up",
+      "streak": "L1",
+      "record": "2-3",
+      "rank": 9
+    },
+    {
+      "teamId": 15,
+      "wins": 2,
+      "losses": 3,
+      "ties": 0,
+      "pointsFor": 560.48,
+      "pointsAgainst": 571.94,
+      "name": "On Like McConkey Kong",
+      "streak": "W1",
+      "record": "2-3",
+      "rank": 10
+    },
+    {
+      "teamId": 11,
+      "wins": 1,
+      "losses": 4,
+      "ties": 0,
+      "pointsFor": 514.7,
+      "pointsAgainst": 592.1,
+      "name": "The Queen's Lambit",
+      "streak": "L3",
+      "record": "1-4",
+      "rank": 11
+    },
+    {
+      "teamId": 4,
+      "wins": 1,
+      "losses": 4,
+      "ties": 0,
+      "pointsFor": 509.66,
+      "pointsAgainst": 586.34,
+      "name": "Not so Goated",
+      "streak": "L4",
+      "record": "1-4",
+      "rank": 12
+    }
+  ],
+  "allPlay": [
+    {
+      "teamId": 1,
+      "allPlayWins": 42,
+      "allPlayLosses": 13,
+      "allPlayTies": 0,
+      "name": "Team Gang of Platipy",
+      "allPlayRecord": "42-13",
+      "allPlayPct": 0.7636,
+      "luck": -0.82,
+      "rank": 1
+    },
+    {
+      "teamId": 14,
+      "allPlayWins": 38,
+      "allPlayLosses": 17,
+      "allPlayTies": 0,
+      "name": "Never Gonna Gibbs You Up",
+      "allPlayRecord": "38-17",
+      "allPlayPct": 0.6909,
+      "luck": -1.45,
+      "rank": 2
+    },
+    {
+      "teamId": 3,
+      "allPlayWins": 33,
+      "allPlayLosses": 22,
+      "allPlayTies": 0,
+      "name": "Finding Deebo",
+      "allPlayRecord": "33-22",
+      "allPlayPct": 0.6,
+      "luck": 0.0,
+      "rank": 3
+    },
+    {
+      "teamId": 13,
+      "allPlayWins": 32,
+      "allPlayLosses": 23,
+      "allPlayTies": 0,
+      "name": "hit it fergie \ud83d\udd7a",
+      "allPlayRecord": "32-23",
+      "allPlayPct": 0.5818,
+      "luck": 0.09,
+      "rank": 4
+    },
+    {
+      "teamId": 8,
+      "allPlayWins": 30,
+      "allPlayLosses": 25,
+      "allPlayTies": 0,
+      "name": "Vegas Vikings",
+      "allPlayRecord": "30-25",
+      "allPlayPct": 0.5455,
+      "luck": 0.27,
+      "rank": 5
+    },
+    {
+      "teamId": 10,
+      "allPlayWins": 26,
+      "allPlayLosses": 29,
+      "allPlayTies": 0,
+      "name": "Dillon Panthers",
+      "allPlayRecord": "26-29",
+      "allPlayPct": 0.4727,
+      "luck": 0.64,
+      "rank": 6
+    },
+    {
+      "teamId": 9,
+      "allPlayWins": 24,
+      "allPlayLosses": 31,
+      "allPlayTies": 0,
+      "name": "Team Kirkland",
+      "allPlayRecord": "24-31",
+      "allPlayPct": 0.4364,
+      "luck": 0.82,
+      "rank": 7
+    },
+    {
+      "teamId": 6,
+      "allPlayWins": 24,
+      "allPlayLosses": 31,
+      "allPlayTies": 0,
+      "name": "Poboy Pumbas",
+      "allPlayRecord": "24-31",
+      "allPlayPct": 0.4364,
+      "luck": 0.82,
+      "rank": 8
+    },
+    {
+      "teamId": 12,
+      "allPlayWins": 23,
+      "allPlayLosses": 32,
+      "allPlayTies": 0,
+      "name": "Puka-chu",
+      "allPlayRecord": "23-32",
+      "allPlayPct": 0.4182,
+      "luck": 0.91,
+      "rank": 9
+    },
+    {
+      "teamId": 15,
+      "allPlayWins": 23,
+      "allPlayLosses": 32,
+      "allPlayTies": 0,
+      "name": "On Like McConkey Kong",
+      "allPlayRecord": "23-32",
+      "allPlayPct": 0.4182,
+      "luck": -0.09,
+      "rank": 10
+    },
+    {
+      "teamId": 4,
+      "allPlayWins": 18,
+      "allPlayLosses": 37,
+      "allPlayTies": 0,
+      "name": "Not so Goated",
+      "allPlayRecord": "18-37",
+      "allPlayPct": 0.3273,
+      "luck": -0.64,
+      "rank": 11
+    },
+    {
+      "teamId": 11,
+      "allPlayWins": 17,
+      "allPlayLosses": 38,
+      "allPlayTies": 0,
+      "name": "The Queen's Lambit",
+      "allPlayRecord": "17-38",
+      "allPlayPct": 0.3091,
+      "luck": -0.55,
+      "rank": 12
+    }
+  ],
+  "seasonRecords": {
+    "highestWeek": {
+      "week": 4,
+      "teamId": 1,
+      "name": "Team Gang of Platipy",
+      "score": 161.0
+    },
+    "lowestWeek": {
+      "week": 1,
+      "teamId": 9,
+      "name": "Team Kirkland",
+      "score": 79.52
+    },
+    "weeksPlayed": 5
+  },
+  "matchups": [
+    {
+      "winnerTeamId": 13,
+      "winnerName": "hit it fergie \ud83d\udd7a",
+      "winnerScore": 141.7,
+      "loserTeamId": 14,
+      "loserName": "Never Gonna Gibbs You Up",
+      "loserScore": 122.76,
+      "margin": 18.94,
+      "isTie": false
+    },
+    {
+      "winnerTeamId": 3,
+      "winnerName": "Finding Deebo",
+      "winnerScore": 140.6,
+      "loserTeamId": 1,
+      "loserName": "Team Gang of Platipy",
+      "loserScore": 110.42,
+      "margin": 30.18,
+      "isTie": false
+    },
+    {
+      "winnerTeamId": 9,
+      "winnerName": "Team Kirkland",
+      "winnerScore": 121.6,
+      "loserTeamId": 11,
+      "loserName": "The Queen's Lambit",
+      "loserScore": 96.92,
+      "margin": 24.68,
+      "isTie": false
+    },
+    {
+      "winnerTeamId": 8,
+      "winnerName": "Vegas Vikings",
+      "winnerScore": 130.36,
+      "loserTeamId": 12,
+      "loserName": "Puka-chu",
+      "loserScore": 109.48,
+      "margin": 20.88,
+      "isTie": false
+    },
+    {
+      "winnerTeamId": 15,
+      "winnerName": "On Like McConkey Kong",
+      "winnerScore": 131.82,
+      "loserTeamId": 10,
+      "loserName": "Dillon Panthers",
+      "loserScore": 112.64,
+      "margin": 19.18,
+      "isTie": false
+    },
+    {
+      "winnerTeamId": 6,
+      "winnerName": "Poboy Pumbas",
+      "winnerScore": 106.72,
+      "loserTeamId": 4,
+      "loserName": "Not so Goated",
+      "loserScore": 92.7,
+      "margin": 14.02,
+      "isTie": false
+    }
+  ],
+  "efficiency": [
+    {
+      "teamId": 4,
+      "name": "Not so Goated",
+      "actual": 92.7,
+      "optimal": 122.5,
+      "pointsLeftOnBench": 29.8,
+      "efficiencyPct": 75.7,
+      "worstDecision": {
+        "slot": "RB",
+        "startedName": "Chase Brown",
+        "startedPoints": 11.8,
+        "benchedName": "Jacory Croskey-Merritt",
+        "benchedPoints": 27.0,
+        "pointsLost": 15.2
+      }
+    },
+    {
+      "teamId": 12,
+      "name": "Puka-chu",
+      "actual": 109.48,
+      "optimal": 128.88,
+      "pointsLeftOnBench": 19.4,
+      "efficiencyPct": 84.9,
+      "worstDecision": {
+        "slot": "WR",
+        "startedName": "Jameson Williams",
+        "startedPoints": 2.0,
+        "benchedName": "Rashid Shaheed",
+        "benchedPoints": 21.4,
+        "pointsLost": 19.4
+      }
+    },
+    {
+      "teamId": 11,
+      "name": "The Queen's Lambit",
+      "actual": 96.92,
+      "optimal": 115.08,
+      "pointsLeftOnBench": 18.16,
+      "efficiencyPct": 84.2,
+      "worstDecision": {
+        "slot": "RB/WR/TE",
+        "startedName": "Jerry Jeudy",
+        "startedPoints": 3.5,
+        "benchedName": "Tre Tucker",
+        "benchedPoints": 11.1,
+        "pointsLost": 7.6
+      }
+    },
+    {
+      "teamId": 10,
+      "name": "Dillon Panthers",
+      "actual": 112.64,
+      "optimal": 130.04,
+      "pointsLeftOnBench": 17.4,
+      "efficiencyPct": 86.6,
+      "worstDecision": {
+        "slot": "RB/WR/TE",
+        "startedName": "Kenneth Walker III",
+        "startedPoints": 9.6,
+        "benchedName": "DeVonta Smith",
+        "benchedPoints": 19.4,
+        "pointsLost": 9.8
+      }
+    },
+    {
+      "teamId": 8,
+      "name": "Vegas Vikings",
+      "actual": 130.36,
+      "optimal": 147.36,
+      "pointsLeftOnBench": 17.0,
+      "efficiencyPct": 88.5,
+      "worstDecision": {
+        "slot": "RB",
+        "startedName": "Derrick Henry",
+        "startedPoints": 9.3,
+        "benchedName": "Rachaad White",
+        "benchedPoints": 23.1,
+        "pointsLost": 13.8
+      }
+    },
+    {
+      "teamId": 9,
+      "name": "Team Kirkland",
+      "actual": 121.6,
+      "optimal": 137.7,
+      "pointsLeftOnBench": 16.1,
+      "efficiencyPct": 88.3,
+      "worstDecision": {
+        "slot": "WR",
+        "startedName": "Quentin Johnston",
+        "startedPoints": 6.9,
+        "benchedName": "Jaylen Waddle",
+        "benchedPoints": 23.0,
+        "pointsLost": 16.1
+      }
+    },
+    {
+      "teamId": 13,
+      "name": "hit it fergie \ud83d\udd7a",
+      "actual": 141.7,
+      "optimal": 151.8,
+      "pointsLeftOnBench": 10.1,
+      "efficiencyPct": 93.3,
+      "worstDecision": {
+        "slot": "RB",
+        "startedName": "Alvin Kamara",
+        "startedPoints": 9.5,
+        "benchedName": "Rhamondre Stevenson",
+        "benchedPoints": 14.7,
+        "pointsLost": 5.2
+      }
+    },
+    {
+      "teamId": 3,
+      "name": "Finding Deebo",
+      "actual": 140.6,
+      "optimal": 149.8,
+      "pointsLeftOnBench": 9.2,
+      "efficiencyPct": 93.9,
+      "worstDecision": {
+        "slot": "WR",
+        "startedName": "Justin Jefferson",
+        "startedPoints": 19.3,
+        "benchedName": "Stefon Diggs",
+        "benchedPoints": 24.6,
+        "pointsLost": 5.3
+      }
+    },
+    {
+      "teamId": 14,
+      "name": "Never Gonna Gibbs You Up",
+      "actual": 122.76,
+      "optimal": 127.56,
+      "pointsLeftOnBench": 4.8,
+      "efficiencyPct": 96.2,
+      "worstDecision": {
+        "slot": "RB/WR/TE",
+        "startedName": "Michael Pittman Jr.",
+        "startedPoints": 14.9,
+        "benchedName": "Dalton Kincaid",
+        "benchedPoints": 16.8,
+        "pointsLost": 1.9
+      }
+    },
+    {
+      "teamId": 15,
+      "name": "On Like McConkey Kong",
+      "actual": 131.82,
+      "optimal": 132.92,
+      "pointsLeftOnBench": 1.1,
+      "efficiencyPct": 99.2,
+      "worstDecision": null
+    },
+    {
+      "teamId": 1,
+      "name": "Team Gang of Platipy",
+      "actual": 110.42,
+      "optimal": 111.42,
+      "pointsLeftOnBench": 1.0,
+      "efficiencyPct": 99.1,
+      "worstDecision": {
+        "slot": "WR",
+        "startedName": "Jakobi Meyers",
+        "startedPoints": 7.2,
+        "benchedName": "Wan'Dale Robinson",
+        "benchedPoints": 8.2,
+        "pointsLost": 1.0
+      }
+    },
+    {
+      "teamId": 6,
+      "name": "Poboy Pumbas",
+      "actual": 106.72,
+      "optimal": 106.72,
+      "pointsLeftOnBench": 0.0,
+      "efficiencyPct": 100.0,
+      "worstDecision": null
+    }
+  ],
+  "teamScores": [
+    {
+      "teamId": 13,
+      "name": "hit it fergie \ud83d\udd7a",
+      "score": 141.7
+    },
+    {
+      "teamId": 3,
+      "name": "Finding Deebo",
+      "score": 140.6
+    },
+    {
+      "teamId": 15,
+      "name": "On Like McConkey Kong",
+      "score": 131.82
+    },
+    {
+      "teamId": 8,
+      "name": "Vegas Vikings",
+      "score": 130.36
+    },
+    {
+      "teamId": 14,
+      "name": "Never Gonna Gibbs You Up",
+      "score": 122.76
+    },
+    {
+      "teamId": 9,
+      "name": "Team Kirkland",
+      "score": 121.6
+    },
+    {
+      "teamId": 10,
+      "name": "Dillon Panthers",
+      "score": 112.64
+    },
+    {
+      "teamId": 1,
+      "name": "Team Gang of Platipy",
+      "score": 110.42
+    },
+    {
+      "teamId": 12,
+      "name": "Puka-chu",
+      "score": 109.48
+    },
+    {
+      "teamId": 6,
+      "name": "Poboy Pumbas",
+      "score": 106.72
+    },
+    {
+      "teamId": 11,
+      "name": "The Queen's Lambit",
+      "score": 96.92
+    },
+    {
+      "teamId": 4,
+      "name": "Not so Goated",
+      "score": 92.7
+    }
+  ],
+  "highestTeam": {
+    "teamId": 13,
+    "name": "hit it fergie \ud83d\udd7a",
+    "score": 141.7
+  },
+  "lowestTeam": {
+    "teamId": 4,
+    "name": "Not so Goated",
+    "score": 92.7
+  },
+  "closestGame": {
+    "winnerTeamId": 6,
+    "winnerName": "Poboy Pumbas",
+    "winnerScore": 106.72,
+    "loserTeamId": 4,
+    "loserName": "Not so Goated",
+    "loserScore": 92.7,
+    "margin": 14.02,
+    "isTie": false
+  },
+  "biggestBlowout": {
+    "winnerTeamId": 3,
+    "winnerName": "Finding Deebo",
+    "winnerScore": 140.6,
+    "loserTeamId": 1,
+    "loserName": "Team Gang of Platipy",
+    "loserScore": 110.42,
+    "margin": 30.18,
+    "isTie": false
+  },
+  "positionLeaders": {
+    "QB": {
+      "bestStarted": {
+        "playerId": 3139477,
+        "name": "Patrick Mahomes",
+        "position": "QB",
+        "slot": "QB",
+        "started": true,
+        "proTeam": "KC",
+        "proOpponent": "JAX",
+        "points": 26.72,
+        "projected": 17.66,
+        "injuryStatus": "QUESTIONABLE",
+        "onByeWeek": false,
+        "teamId": 1,
+        "teamName": "Team Gang of Platipy"
+      },
+      "worstStarted": {
+        "playerId": 4038941,
+        "name": "Justin Herbert",
+        "position": "QB",
+        "slot": "QB",
+        "started": true,
+        "proTeam": "LAC",
+        "proOpponent": "WSH",
+        "points": 14.64,
+        "projected": 20.82,
+        "injuryStatus": "ACTIVE",
+        "onByeWeek": false,
+        "teamId": 10,
+        "teamName": "Dillon Panthers"
+      },
+      "bestBenched": {
+        "playerId": 4432577,
+        "name": "C.J. Stroud",
+        "position": "QB",
+        "slot": "BE",
+        "started": false,
+        "proTeam": "HOU",
+        "proOpponent": "BAL",
+        "points": 28.76,
+        "projected": 17.64,
+        "injuryStatus": "ACTIVE",
+        "onByeWeek": false,
+        "teamId": 8,
+        "teamName": "Vegas Vikings"
+      }
+    },
+    "RB": {
+      "bestStarted": {
+        "playerId": 4038815,
+        "name": "Rico Dowdle",
+        "position": "RB",
+        "slot": "RB/WR/TE",
+        "started": true,
+        "proTeam": "CAR",
+        "proOpponent": "MIA",
+        "points": 32.4,
+        "projected": 14.54,
+        "injuryStatus": "ACTIVE",
+        "onByeWeek": false,
+        "teamId": 3,
+        "teamName": "Finding Deebo"
+      },
+      "worstStarted": {
+        "playerId": 4257364,
+        "name": "Zavier Scott",
+        "position": "RB",
+        "slot": "RB",
+        "started": true,
+        "proTeam": "MIN",
+        "proOpponent": "CLE",
+        "points": -0.2,
+        "projected": 5.17,
+        "injuryStatus": "ACTIVE",
+        "onByeWeek": false,
+        "teamId": 14,
+        "teamName": "Never Gonna Gibbs You Up"
+      },
+      "bestBenched": {
+        "playerId": 4575131,
+        "name": "Jacory Croskey-Merritt",
+        "position": "RB",
+        "slot": "BE",
+        "started": false,
+        "proTeam": "WSH",
+        "proOpponent": "LAC",
+        "points": 27.0,
+        "projected": 7.77,
+        "injuryStatus": "ACTIVE",
+        "onByeWeek": false,
+        "teamId": 4,
+        "teamName": "Not so Goated"
+      }
+    },
+    "WR": {
+      "bestStarted": {
+        "playerId": 4567750,
+        "name": "Emeka Egbuka",
+        "position": "WR",
+        "slot": "WR",
+        "started": true,
+        "proTeam": "TB",
+        "proOpponent": "SEA",
+        "points": 31.3,
+        "projected": 14.23,
+        "injuryStatus": "ACTIVE",
+        "onByeWeek": false,
+        "teamId": 10,
+        "teamName": "Dillon Panthers"
+      },
+      "worstStarted": {
+        "playerId": 4426388,
+        "name": "Jameson Williams",
+        "position": "WR",
+        "slot": "WR",
+        "started": true,
+        "proTeam": "DET",
+        "proOpponent": "CIN",
+        "points": 2.0,
+        "projected": 11.84,
+        "injuryStatus": "ACTIVE",
+        "onByeWeek": false,
+        "teamId": 12,
+        "teamName": "Puka-chu"
+      },
+      "bestBenched": {
+        "playerId": 2976212,
+        "name": "Stefon Diggs",
+        "position": "WR",
+        "slot": "BE",
+        "started": false,
+        "proTeam": "NE",
+        "proOpponent": "BUF",
+        "points": 24.6,
+        "projected": 12.87,
+        "injuryStatus": "ACTIVE",
+        "onByeWeek": false,
+        "teamId": 3,
+        "teamName": "Finding Deebo"
+      }
+    },
+    "TE": {
+      "bestStarted": {
+        "playerId": 4242355,
+        "name": "Jake Ferguson",
+        "position": "TE",
+        "slot": "TE",
+        "started": true,
+        "proTeam": "DAL",
+        "proOpponent": "NYJ",
+        "points": 23.9,
+        "projected": 11.99,
+        "injuryStatus": "ACTIVE",
+        "onByeWeek": false,
+        "teamId": 13,
+        "teamName": "hit it fergie \ud83d\udd7a"
+      },
+      "worstStarted": {
+        "playerId": 15835,
+        "name": "Zach Ertz",
+        "position": "TE",
+        "slot": "TE",
+        "started": true,
+        "proTeam": "WSH",
+        "proOpponent": "LAC",
+        "points": 0.0,
+        "projected": 9.18,
+        "injuryStatus": "QUESTIONABLE",
+        "onByeWeek": false,
+        "teamId": 12,
+        "teamName": "Puka-chu"
+      },
+      "bestBenched": {
+        "playerId": 3123076,
+        "name": "David Njoku",
+        "position": "TE",
+        "slot": "BE",
+        "started": false,
+        "proTeam": "CLE",
+        "proOpponent": "MIN",
+        "points": 18.7,
+        "projected": 8.11,
+        "injuryStatus": "QUESTIONABLE",
+        "onByeWeek": false,
+        "teamId": 13,
+        "teamName": "hit it fergie \ud83d\udd7a"
+      }
+    },
+    "D/ST": {
+      "bestStarted": {
+        "playerId": -16011,
+        "name": "Colts D/ST",
+        "position": "D/ST",
+        "slot": "D/ST",
+        "started": true,
+        "proTeam": "IND",
+        "proOpponent": "LV",
+        "points": 16.0,
+        "projected": 6.13,
+        "injuryStatus": "NORMAL",
+        "onByeWeek": false,
+        "teamId": 9,
+        "teamName": "Team Kirkland"
+      },
+      "worstStarted": {
+        "playerId": -16026,
+        "name": "Seahawks D/ST",
+        "position": "D/ST",
+        "slot": "D/ST",
+        "started": true,
+        "proTeam": "SEA",
+        "proOpponent": "TB",
+        "points": -5.0,
+        "projected": 5.77,
+        "injuryStatus": "NORMAL",
+        "onByeWeek": false,
+        "teamId": 15,
+        "teamName": "On Like McConkey Kong"
+      },
+      "bestBenched": null
+    },
+    "K": {
+      "bestStarted": {
+        "playerId": 2971573,
+        "name": "Ka'imi Fairbairn",
+        "position": "K",
+        "slot": "K",
+        "started": true,
+        "proTeam": "HOU",
+        "proOpponent": "BAL",
+        "points": 18.0,
+        "projected": 7.86,
+        "injuryStatus": "ACTIVE",
+        "onByeWeek": false,
+        "teamId": 15,
+        "teamName": "On Like McConkey Kong"
+      },
+      "worstStarted": {
+        "playerId": 4571557,
+        "name": "Spencer Shrader",
+        "position": "K",
+        "slot": "K",
+        "started": true,
+        "proTeam": "IND",
+        "proOpponent": "LV",
+        "points": 2.0,
+        "projected": 8.51,
+        "injuryStatus": "QUESTIONABLE",
+        "onByeWeek": false,
+        "teamId": 9,
+        "teamName": "Team Kirkland"
+      },
+      "bestBenched": null
+    }
+  },
+  "projections": {
+    "biggestBoom": {
+      "playerId": 4038815,
+      "name": "Rico Dowdle",
+      "position": "RB",
+      "slot": "RB/WR/TE",
+      "started": true,
+      "proTeam": "CAR",
+      "proOpponent": "MIA",
+      "points": 32.4,
+      "projected": 14.54,
+      "injuryStatus": "ACTIVE",
+      "onByeWeek": false,
+      "teamId": 3,
+      "teamName": "Finding Deebo",
+      "delta": 17.86
+    },
+    "biggestBust": {
+      "playerId": 4379399,
+      "name": "James Cook III",
+      "position": "RB",
+      "slot": "RB",
+      "started": true,
+      "proTeam": "BUF",
+      "proOpponent": "NE",
+      "points": 4.9,
+      "projected": 18.42,
+      "injuryStatus": "ACTIVE",
+      "onByeWeek": false,
+      "teamId": 1,
+      "teamName": "Team Gang of Platipy",
+      "delta": -13.52
+    }
+  },
+  "transactionsAvailable": true,
+  "transactions": [
+    {
+      "type": "WAIVER",
+      "teamId": 10,
+      "date": 1759306197252,
+      "adds": [
+        {
+          "playerId": 4569603,
+          "name": "Malik Washington"
+        }
+      ],
+      "drops": [],
+      "teamName": "Dillon Panthers"
+    },
+    {
+      "type": "WAIVER",
+      "teamId": 4,
+      "date": 1759306197250,
+      "adds": [
+        {
+          "playerId": 3916945,
+          "name": "Darius Slayton"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 4428850,
+          "name": "Dontayvion Wicks"
+        }
+      ],
+      "teamName": "Not so Goated"
+    },
+    {
+      "type": "WAIVER",
+      "teamId": 6,
+      "date": 1759306197251,
+      "adds": [
+        {
+          "playerId": 3059915,
+          "name": "Kareem Hunt"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 4429022,
+          "name": "Kayshon Boutte"
+        }
+      ],
+      "teamName": "Poboy Pumbas"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 6,
+      "date": 1759493713402,
+      "adds": [
+        {
+          "playerId": 2473037,
+          "name": "Jason Myers"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 11122,
+          "name": "Matt Prater"
+        }
+      ],
+      "teamName": "Poboy Pumbas"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 9,
+      "date": 1759433924003,
+      "adds": [
+        {
+          "playerId": 4571557,
+          "name": "Spencer Shrader"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 17372,
+          "name": "Chris Boswell"
+        }
+      ],
+      "teamName": "Team Kirkland"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 13,
+      "date": 1759459018768,
+      "adds": [
+        {
+          "playerId": 4426339,
+          "name": "Spencer Rattler"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 4360423,
+          "name": "Michael Penix Jr."
+        }
+      ],
+      "teamName": "hit it fergie \ud83d\udd7a"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 6,
+      "date": 1759683255024,
+      "adds": [
+        {
+          "playerId": 4808766,
+          "name": "Mason Taylor"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 4360516,
+          "name": "Tyrone Tracy Jr."
+        }
+      ],
+      "teamName": "Poboy Pumbas"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 3,
+      "date": 1759445969799,
+      "adds": [
+        {
+          "playerId": 4689114,
+          "name": "Jaxson Dart"
+        }
+      ],
+      "drops": [],
+      "teamName": "Finding Deebo"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 15,
+      "date": 1759339375779,
+      "adds": [
+        {
+          "playerId": 4686472,
+          "name": "Marvin Mims Jr."
+        }
+      ],
+      "drops": [],
+      "teamName": "On Like McConkey Kong"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 14,
+      "date": 1759341593529,
+      "adds": [
+        {
+          "playerId": 4599739,
+          "name": "Kendre Miller"
+        }
+      ],
+      "drops": [],
+      "teamName": "Never Gonna Gibbs You Up"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 4,
+      "date": 1759344640713,
+      "adds": [
+        {
+          "playerId": 4240657,
+          "name": "Michael Carter"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 4241372,
+          "name": "Hollywood Brown"
+        }
+      ],
+      "teamName": "Not so Goated"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 14,
+      "date": 1759509121938,
+      "adds": [
+        {
+          "playerId": 4257364,
+          "name": "Zavier Scott"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 4682745,
+          "name": "Jaylen Wright"
+        }
+      ],
+      "teamName": "Never Gonna Gibbs You Up"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 8,
+      "date": 1759451148441,
+      "adds": [
+        {
+          "playerId": -16015,
+          "name": "Dolphins D/ST"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 4433970,
+          "name": "J.J. McCarthy"
+        }
+      ],
+      "teamName": "Vegas Vikings"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 11,
+      "date": 1759442990517,
+      "adds": [
+        {
+          "playerId": -16014,
+          "name": "Rams D/ST"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": -16019,
+          "name": "Giants D/ST"
+        }
+      ],
+      "teamName": "The Queen's Lambit"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 15,
+      "date": 1759338985757,
+      "adds": [
+        {
+          "playerId": 4362478,
+          "name": "Emari Demercado"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": -16033,
+          "name": "Ravens D/ST"
+        }
+      ],
+      "teamName": "On Like McConkey Kong"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 13,
+      "date": 1759458985770,
+      "adds": [
+        {
+          "playerId": 4596602,
+          "name": "Brashard Smith"
+        }
+      ],
+      "drops": [],
+      "teamName": "hit it fergie \ud83d\udd7a"
+    },
+    {
+      "type": "WAIVER",
+      "teamId": 4,
+      "date": 1759306197252,
+      "adds": [
+        {
+          "playerId": 4430871,
+          "name": "Sean Tucker"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 4595342,
+          "name": "Oronde Gadsden"
+        }
+      ],
+      "teamName": "Not so Goated"
+    },
+    {
+      "type": "WAIVER",
+      "teamId": 10,
+      "date": 1759306197275,
+      "adds": [
+        {
+          "playerId": -16005,
+          "name": "Browns D/ST"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": -16024,
+          "name": "Chargers D/ST"
+        }
+      ],
+      "teamName": "Dillon Panthers"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 4,
+      "date": 1759442743240,
+      "adds": [
+        {
+          "playerId": 4695883,
+          "name": "Jalen Coker"
+        }
+      ],
+      "drops": [],
+      "teamName": "Not so Goated"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 9,
+      "date": 1759443050907,
+      "adds": [
+        {
+          "playerId": 2576925,
+          "name": "Darren Waller"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 4685247,
+          "name": "Braelon Allen"
+        }
+      ],
+      "teamName": "Team Kirkland"
+    },
+    {
+      "type": "FREEAGENT",
+      "teamId": 11,
+      "date": 1759323486281,
+      "adds": [
+        {
+          "playerId": -16019,
+          "name": "Giants D/ST"
+        }
+      ],
+      "drops": [
+        {
+          "playerId": 4711533,
+          "name": "Ollie Gordon II"
+        }
+      ],
+      "teamName": "The Queen's Lambit"
+    }
+  ],
+  "facts": [
+    {
+      "id": "league.format",
+      "text": "12 teams. 4 make the playoffs. The regular season is 13 weeks."
+    },
+    {
+      "id": "league.remaining",
+      "text": "This is week 5. 8 regular season weeks remain after it."
+    },
+    {
+      "id": "standings.1",
+      "text": "Team Gang of Platipy is 1 of 12 at 3-2 with 650.3 points for and 668.8 against (current streak L1). They rank 1 of 12 in points scored."
+    },
+    {
+      "id": "standings.2",
+      "text": "Finding Deebo is 2 of 12 at 3-2 with 623.8 points for and 542.4 against (current streak W1). They rank 3 of 12 in points scored."
+    },
+    {
+      "id": "standings.3",
+      "text": "Vegas Vikings is 3 of 12 at 3-2 with 618.0 points for and 576.4 against (current streak W3). They rank 4 of 12 in points scored."
+    },
+    {
+      "id": "standings.4",
+      "text": "hit it fergie \ud83d\udd7a is 4 of 12 at 3-2 with 610.6 points for and 597.0 against (current streak W1). They rank 5 of 12 in points scored."
+    },
+    {
+      "id": "standings.5",
+      "text": "Team Kirkland is 5 of 12 at 3-2 with 566.8 points for and 586.8 against (current streak W3). They rank 6 of 12 in points scored."
+    },
+    {
+      "id": "standings.6",
+      "text": "Dillon Panthers is 6 of 12 at 3-2 with 558.0 points for and 514.5 against (current streak L1). They rank 8 of 12 in points scored."
+    },
+    {
+      "id": "standings.7",
+      "text": "Puka-chu is 7 of 12 at 3-2 with 553.3 points for and 555.3 against (current streak L2). They rank 9 of 12 in points scored."
+    },
+    {
+      "id": "standings.8",
+      "text": "Poboy Pumbas is 8 of 12 at 3-2 with 545.2 points for and 540.2 against (current streak W2). They rank 10 of 12 in points scored."
+    },
+    {
+      "id": "standings.9",
+      "text": "Never Gonna Gibbs You Up is 9 of 12 at 2-3 with 634.2 points for and 613.3 against (current streak L1). They rank 2 of 12 in points scored."
+    },
+    {
+      "id": "standings.10",
+      "text": "On Like McConkey Kong is 10 of 12 at 2-3 with 560.5 points for and 571.9 against (current streak W1). They rank 7 of 12 in points scored."
+    },
+    {
+      "id": "standings.11",
+      "text": "The Queen's Lambit is 11 of 12 at 1-4 with 514.7 points for and 592.1 against (current streak L3). They rank 11 of 12 in points scored."
+    },
+    {
+      "id": "standings.12",
+      "text": "Not so Goated is 12 of 12 at 1-4 with 509.7 points for and 586.3 against (current streak L4). They rank 12 of 12 in points scored."
+    },
+    {
+      "id": "allplay.1",
+      "text": "Team Gang of Platipy is 42-13 against the entire league (76% all-play win rate), ranking 1 in true strength. Their record is 0.82 wins WORSE than their scoring earned \u2014 they have been unlucky."
+    },
+    {
+      "id": "allplay.2",
+      "text": "Never Gonna Gibbs You Up is 38-17 against the entire league (69% all-play win rate), ranking 2 in true strength. Their record is 1.45 wins WORSE than their scoring earned \u2014 they have been unlucky."
+    },
+    {
+      "id": "allplay.3",
+      "text": "Finding Deebo is 33-22 against the entire league (60% all-play win rate), ranking 3 in true strength. Their record is about what their scoring earned."
+    },
+    {
+      "id": "allplay.4",
+      "text": "hit it fergie \ud83d\udd7a is 32-23 against the entire league (58% all-play win rate), ranking 4 in true strength. Their record is about what their scoring earned."
+    },
+    {
+      "id": "allplay.5",
+      "text": "Vegas Vikings is 30-25 against the entire league (55% all-play win rate), ranking 5 in true strength. Their record is about what their scoring earned."
+    },
+    {
+      "id": "allplay.6",
+      "text": "Dillon Panthers is 26-29 against the entire league (47% all-play win rate), ranking 6 in true strength. Their record is about what their scoring earned."
+    },
+    {
+      "id": "allplay.7",
+      "text": "Team Kirkland is 24-31 against the entire league (44% all-play win rate), ranking 7 in true strength. Their record is 0.82 wins BETTER than their scoring earned \u2014 they have been lucky."
+    },
+    {
+      "id": "allplay.8",
+      "text": "Poboy Pumbas is 24-31 against the entire league (44% all-play win rate), ranking 8 in true strength. Their record is 0.82 wins BETTER than their scoring earned \u2014 they have been lucky."
+    },
+    {
+      "id": "allplay.9",
+      "text": "Puka-chu is 23-32 against the entire league (42% all-play win rate), ranking 9 in true strength. Their record is 0.91 wins BETTER than their scoring earned \u2014 they have been lucky."
+    },
+    {
+      "id": "allplay.10",
+      "text": "On Like McConkey Kong is 23-32 against the entire league (42% all-play win rate), ranking 10 in true strength. Their record is about what their scoring earned."
+    },
+    {
+      "id": "allplay.11",
+      "text": "Not so Goated is 18-37 against the entire league (33% all-play win rate), ranking 11 in true strength. Their record is about what their scoring earned."
+    },
+    {
+      "id": "allplay.12",
+      "text": "The Queen's Lambit is 17-38 against the entire league (31% all-play win rate), ranking 12 in true strength. Their record is about what their scoring earned."
+    },
+    {
+      "id": "matchup.1",
+      "text": "hit it fergie \ud83d\udd7a beat Never Gonna Gibbs You Up 141.7 to 122.8, a margin of 18.9."
+    },
+    {
+      "id": "matchup.2",
+      "text": "Finding Deebo beat Team Gang of Platipy 140.6 to 110.4, a margin of 30.2."
+    },
+    {
+      "id": "matchup.3",
+      "text": "Team Kirkland beat The Queen's Lambit 121.6 to 96.9, a margin of 24.7."
+    },
+    {
+      "id": "matchup.4",
+      "text": "Vegas Vikings beat Puka-chu 130.4 to 109.5, a margin of 20.9."
+    },
+    {
+      "id": "matchup.5",
+      "text": "On Like McConkey Kong beat Dillon Panthers 131.8 to 112.6, a margin of 19.2."
+    },
+    {
+      "id": "matchup.6",
+      "text": "Poboy Pumbas beat Not so Goated 106.7 to 92.7, a margin of 14.0."
+    },
+    {
+      "id": "week.highest",
+      "text": "hit it fergie \ud83d\udd7a was the week's highest scorer with 141.7."
+    },
+    {
+      "id": "week.lowest",
+      "text": "Not so Goated was the week's lowest scorer with 92.7."
+    },
+    {
+      "id": "week.closest",
+      "text": "The closest game was Poboy Pumbas over Not so Goated by 14.0."
+    },
+    {
+      "id": "week.blowout",
+      "text": "The largest margin was Finding Deebo over Team Gang of Platipy by 30.2."
+    },
+    {
+      "id": "position.best.QB",
+      "text": "The top scoring started QB was Patrick Mahomes (KC vs JAX) with 26.7 for Team Gang of Platipy."
+    },
+    {
+      "id": "position.worst.QB",
+      "text": "The lowest scoring started QB was Justin Herbert (LAC) with 14.6 for Dillon Panthers."
+    },
+    {
+      "id": "position.benched.QB",
+      "text": "The best QB left on a bench was C.J. Stroud (HOU) with 28.8, benched by Vegas Vikings."
+    },
+    {
+      "id": "position.best.RB",
+      "text": "The top scoring started RB was Rico Dowdle (CAR vs MIA) with 32.4 for Finding Deebo."
+    },
+    {
+      "id": "position.worst.RB",
+      "text": "The lowest scoring started RB was Zavier Scott (MIN) with -0.2 for Never Gonna Gibbs You Up."
+    },
+    {
+      "id": "position.benched.RB",
+      "text": "The best RB left on a bench was Jacory Croskey-Merritt (WSH) with 27.0, benched by Not so Goated."
+    },
+    {
+      "id": "position.best.WR",
+      "text": "The top scoring started WR was Emeka Egbuka (TB vs SEA) with 31.3 for Dillon Panthers."
+    },
+    {
+      "id": "position.worst.WR",
+      "text": "The lowest scoring started WR was Jameson Williams (DET) with 2.0 for Puka-chu."
+    },
+    {
+      "id": "position.benched.WR",
+      "text": "The best WR left on a bench was Stefon Diggs (NE) with 24.6, benched by Finding Deebo."
+    },
+    {
+      "id": "position.best.TE",
+      "text": "The top scoring started TE was Jake Ferguson (DAL vs NYJ) with 23.9 for hit it fergie \ud83d\udd7a."
+    },
+    {
+      "id": "position.worst.TE",
+      "text": "The lowest scoring started TE was Zach Ertz (WSH) with 0.0 for Puka-chu."
+    },
+    {
+      "id": "position.benched.TE",
+      "text": "The best TE left on a bench was David Njoku (CLE) with 18.7, benched by hit it fergie \ud83d\udd7a."
+    },
+    {
+      "id": "position.best.D/ST",
+      "text": "The top scoring started D/ST was Colts D/ST (IND vs LV) with 16.0 for Team Kirkland."
+    },
+    {
+      "id": "position.worst.D/ST",
+      "text": "The lowest scoring started D/ST was Seahawks D/ST (SEA) with -5.0 for On Like McConkey Kong."
+    },
+    {
+      "id": "position.best.K",
+      "text": "The top scoring started K was Ka'imi Fairbairn (HOU vs BAL) with 18.0 for On Like McConkey Kong."
+    },
+    {
+      "id": "position.worst.K",
+      "text": "The lowest scoring started K was Spencer Shrader (IND) with 2.0 for Team Kirkland."
+    },
+    {
+      "id": "bench.wasted.1",
+      "text": "Not so Goated scored 92.7 of a possible 122.5 (75.7% lineup efficiency), leaving 29.8 on the bench."
+    },
+    {
+      "id": "bench.decision.1",
+      "text": "Not so Goated started Chase Brown (11.8) over Jacory Croskey-Merritt (27.0) at RB, costing 15.2."
+    },
+    {
+      "id": "bench.wasted.2",
+      "text": "Puka-chu scored 109.5 of a possible 128.9 (84.9% lineup efficiency), leaving 19.4 on the bench."
+    },
+    {
+      "id": "bench.decision.2",
+      "text": "Puka-chu started Jameson Williams (2.0) over Rashid Shaheed (21.4) at WR, costing 19.4."
+    },
+    {
+      "id": "bench.wasted.3",
+      "text": "The Queen's Lambit scored 96.9 of a possible 115.1 (84.2% lineup efficiency), leaving 18.2 on the bench."
+    },
+    {
+      "id": "bench.wasted.4",
+      "text": "Dillon Panthers scored 112.6 of a possible 130.0 (86.6% lineup efficiency), leaving 17.4 on the bench."
+    },
+    {
+      "id": "bench.best",
+      "text": "Poboy Pumbas managed the cleanest lineup at 100.0% efficiency, leaving only 0.0 on the bench."
+    },
+    {
+      "id": "projection.boom",
+      "text": "Rico Dowdle (Finding Deebo) beat his 14.5 projection by 17.9, scoring 32.4."
+    },
+    {
+      "id": "projection.bust",
+      "text": "James Cook III (Team Gang of Platipy) missed his 18.4 projection by 13.5, scoring only 4.9."
+    },
+    {
+      "id": "transaction.1",
+      "text": "Dillon Panthers claimed off waivers Malik Washington and dropped nobody."
+    },
+    {
+      "id": "transaction.2",
+      "text": "Not so Goated claimed off waivers Darius Slayton and dropped Dontayvion Wicks."
+    },
+    {
+      "id": "transaction.3",
+      "text": "Poboy Pumbas claimed off waivers Kareem Hunt and dropped Kayshon Boutte."
+    },
+    {
+      "id": "transaction.4",
+      "text": "Poboy Pumbas signed off free agency Jason Myers and dropped Matt Prater."
+    },
+    {
+      "id": "transaction.5",
+      "text": "Team Kirkland signed off free agency Spencer Shrader and dropped Chris Boswell."
+    },
+    {
+      "id": "transaction.6",
+      "text": "hit it fergie \ud83d\udd7a signed off free agency Spencer Rattler and dropped Michael Penix Jr.."
+    },
+    {
+      "id": "transaction.7",
+      "text": "Poboy Pumbas signed off free agency Mason Taylor and dropped Tyrone Tracy Jr.."
+    },
+    {
+      "id": "transaction.8",
+      "text": "Finding Deebo signed off free agency Jaxson Dart and dropped nobody."
+    },
+    {
+      "id": "transaction.9",
+      "text": "On Like McConkey Kong signed off free agency Marvin Mims Jr. and dropped nobody."
+    },
+    {
+      "id": "transaction.10",
+      "text": "Never Gonna Gibbs You Up signed off free agency Kendre Miller and dropped nobody."
+    },
+    {
+      "id": "transaction.11",
+      "text": "Not so Goated signed off free agency Michael Carter and dropped Hollywood Brown."
+    },
+    {
+      "id": "transaction.12",
+      "text": "Never Gonna Gibbs You Up signed off free agency Zavier Scott and dropped Jaylen Wright."
+    },
+    {
+      "id": "transaction.13",
+      "text": "Vegas Vikings signed off free agency Dolphins D/ST and dropped J.J. McCarthy."
+    },
+    {
+      "id": "transaction.14",
+      "text": "The Queen's Lambit signed off free agency Rams D/ST and dropped Giants D/ST."
+    },
+    {
+      "id": "transaction.15",
+      "text": "On Like McConkey Kong signed off free agency Emari Demercado and dropped Ravens D/ST."
+    },
+    {
+      "id": "transaction.16",
+      "text": "hit it fergie \ud83d\udd7a signed off free agency Brashard Smith and dropped nobody."
+    },
+    {
+      "id": "transaction.17",
+      "text": "Not so Goated claimed off waivers Sean Tucker and dropped Oronde Gadsden."
+    },
+    {
+      "id": "transaction.18",
+      "text": "Dillon Panthers claimed off waivers Browns D/ST and dropped Chargers D/ST."
+    },
+    {
+      "id": "transaction.19",
+      "text": "Not so Goated signed off free agency Jalen Coker and dropped nobody."
+    },
+    {
+      "id": "transaction.20",
+      "text": "Team Kirkland signed off free agency Darren Waller and dropped Braelon Allen."
+    },
+    {
+      "id": "transaction.21",
+      "text": "The Queen's Lambit signed off free agency Giants D/ST and dropped Ollie Gordon II."
+    },
+    {
+      "id": "season.highest",
+      "text": "The season's highest single week is Team Gang of Platipy with 161.0 in week 4."
+    },
+    {
+      "id": "season.lowest",
+      "text": "The season's lowest single week is Team Kirkland with 79.5 in week 1."
+    }
+  ]
+}

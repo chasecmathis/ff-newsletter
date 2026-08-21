@@ -1,0 +1,66 @@
+---
+import { teamUrl } from "../lib/url";
+import type { StandingsRow } from "../lib/schema";
+
+/**
+ * compact drops to rank/team/record so the table fits a narrow rail without
+ * scrolling sideways. The full variant is for the page-width context.
+ */
+interface Props { rows: StandingsRow[]; year: number; playoffSpots: number; compact?: boolean }
+const { rows, year, playoffSpots, compact = false } = Astro.props;
+const columns = compact ? ["", "Team", "Rec"] : ["", "Team", "Rec", "PF", "PA", "Strk"];
+// Precomputed: a `<=` inside a template expression parses as a tag opener.
+const entries = rows.map((row) => ({
+  ...row,
+  inPlayoffs: row.rank <= playoffSpots,
+  isCutLine: row.rank === playoffSpots,
+  won: row.streak.startsWith("W"),
+}));
+---
+<div class:list={[!compact && "scroll-x"]}>
+  <table class:list={["w-full border-collapse text-left", !compact && "min-w-[34rem]"]}>
+    <thead>
+      <tr class="border-b-2 hairline">
+        {columns.map((h, i) => (
+          <th class:list={["eyebrow pb-2 font-normal", i === 0 && "w-8", i >= 2 && "text-right", i === 1 && "pl-3"]}>{h}</th>
+        ))}
+      </tr>
+    </thead>
+    <tbody class="tabular">
+      {entries.map((row) => (
+        <tr
+          class:list={[
+            "border-b hairline transition-colors hover:bg-paper-deep/60",
+            row.isCutLine && "border-b-2 !border-flag/50",
+          ]}
+        >
+          <td class="py-2.5">
+            <span class:list={["font-display text-lg", row.inPlayoffs ? "text-flag" : "text-ink/25"]}>
+              {row.rank}
+            </span>
+          </td>
+          <td class:list={["py-2.5 pl-3", compact && "pr-2"]}>
+            <a href={teamUrl(year, row.teamId)} class:list={["no-underline hover:text-flag font-medium", compact && "text-sm"]}>
+              {row.name}
+            </a>
+          </td>
+          <td class="py-2.5 text-right font-mono text-sm">{row.record}</td>
+          {!compact && (
+            <>
+              <td class="py-2.5 text-right font-mono text-sm">{row.pointsFor.toFixed(1)}</td>
+              <td class="py-2.5 text-right font-mono text-sm text-ink-soft">{row.pointsAgainst.toFixed(1)}</td>
+              <td class:list={["py-2.5 text-right font-mono text-sm", row.won ? "text-turf" : "text-ink-soft"]}>
+                {row.streak}
+              </td>
+            </>
+          )}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+{!compact && (
+  <p class="mt-3 font-mono text-[0.6875rem] text-ink-soft tracking-wide">
+    Orange rule marks the {playoffSpots}-team playoff cut.
+  </p>
+)}

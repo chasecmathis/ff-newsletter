@@ -1,0 +1,72 @@
+---
+import Base from "../../../layouts/Base.astro";
+import YardLine from "../../../components/YardLine.astro";
+import Sparkline from "../../../components/Sparkline.astro";
+import { seasons, latestFacts, teamScoreSeries } from "../../../lib/data";
+import { teamUrl } from "../../../lib/url";
+
+export function getStaticPaths() {
+  return seasons.map((year) => ({ params: { year: String(year) } }));
+}
+
+const year = Number(Astro.params.year);
+const facts = latestFacts(year)!;
+const teams = facts.standings.map((row) => ({
+  ...row,
+  allPlay: facts.allPlay.find((a) => a.teamId === row.teamId)!,
+  series: teamScoreSeries(year, row.teamId),
+})).map((team) => ({
+  ...team,
+  inHunt: team.rank <= facts.playoffTeamCount,
+  summary: [
+    { label: "Record", value: team.record },
+    { label: "PF", value: team.pointsFor.toFixed(0) },
+    { label: "All-play", value: team.allPlay.allPlayRecord },
+  ],
+}));
+---
+
+<Base title={`Teams — ${year}`}>
+  <div class="mx-auto w-full max-w-6xl px-5 sm:px-8 py-12 sm:py-16">
+    <p class="eyebrow mb-3">{year} · through week {facts.week}</p>
+    <h1 class="text-4xl sm:text-6xl mb-2">Twelve teams</h1>
+    <p class="prose-newsletter text-ink-soft max-w-xl">
+      Ordered by record. The line is every week's score, in order.
+    </p>
+
+    <YardLine class="mt-10" />
+
+    <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {teams.map((team, i) => (
+        <li class="rise" style={`--i:${i}`}>
+          <a href={teamUrl(year, team.teamId)} class="group flex flex-col h-full border hairline bg-paper p-5 no-underline lift">
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div class="min-w-0">
+                <span class="eyebrow block mb-1.5">
+                  {team.inHunt ? "In the hunt" : `#${team.rank}`}
+                </span>
+                <span class="display text-xl leading-tight block group-hover:text-flag transition-colors">
+                  {team.name}
+                </span>
+              </div>
+              <span class="font-display text-4xl text-ink/12 shrink-0 leading-none">
+                {String(team.rank).padStart(2, "0")}
+              </span>
+            </div>
+
+            <div class="text-ink-soft mb-4"><Sparkline points={team.series} /></div>
+
+            <dl class="grid grid-cols-3 gap-2 mt-auto pt-3 border-t hairline">
+              {team.summary.map((stat) => (
+                <div>
+                  <dt class="board-label !text-ink-soft !text-[0.5625rem]">{stat.label}</dt>
+                  <dd class="font-mono text-sm tabular mt-0.5">{stat.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

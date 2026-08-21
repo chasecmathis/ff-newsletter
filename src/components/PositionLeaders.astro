@@ -1,0 +1,59 @@
+---
+import type { Facts } from "../lib/schema";
+
+interface Props { leaders: Facts["positionLeaders"] }
+const { leaders } = Astro.props;
+const order = ["QB", "RB", "WR", "TE", "D/ST", "K"];
+const rows = order.flatMap((position) => {
+  const group = leaders[position];
+  return group ? [{ position, ...group }] : [];
+});
+---
+<div class="board scroll-x">
+  <table class="w-full border-collapse text-left min-w-[44rem]">
+    <thead>
+      <tr class="border-b hairline-board">
+        {["Pos", "Top starter", "", "Worst starter", "", "Best benched", ""].map((h, i) => (
+          <th class:list={[
+            "board-label px-4 py-3 font-normal whitespace-nowrap align-bottom",
+            i % 2 === 0 && i > 0 && "text-right",
+          ]}>{h}</th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row) => (
+        <tr class="border-b hairline-board last:border-0">
+          <td class="px-4 py-3">
+            <span class="font-display text-base text-paper/50">{row.position}</span>
+          </td>
+          <td class="px-4 py-3">
+            <div class="text-sm leading-tight whitespace-nowrap">{row.bestStarted.name}</div>
+            <div class="board-label !tracking-[0.12em] mt-0.5">{row.bestStarted.teamName}</div>
+          </td>
+          <td class="px-4 py-3 text-right board-number text-sm">{row.bestStarted.points.toFixed(1)}</td>
+          <td class="px-4 py-3">
+            <div class="text-sm leading-tight text-paper/70 whitespace-nowrap">{row.worstStarted.name}</div>
+            <div class="board-label !tracking-[0.12em] mt-0.5">{row.worstStarted.teamName}</div>
+          </td>
+          <td class="px-4 py-3 text-right font-mono text-sm text-paper/50 tabular">
+            {row.worstStarted.points.toFixed(1)}
+          </td>
+          <td class="px-4 py-3">
+            {row.bestBenched ? (
+              <>
+                <div class="text-sm leading-tight text-paper/70 whitespace-nowrap">{row.bestBenched.name}</div>
+                <div class="board-label !tracking-[0.12em] mt-0.5">{row.bestBenched.teamName}</div>
+              </>
+            ) : (
+              <span class="text-paper/30 font-mono text-xs">—</span>
+            )}
+          </td>
+          <td class="px-4 py-3 text-right font-mono text-sm text-paper/50 tabular">
+            {row.bestBenched ? row.bestBenched.points.toFixed(1) : ""}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

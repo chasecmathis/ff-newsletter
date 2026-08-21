@@ -1,0 +1,129 @@
+{
+  "year": 2025,
+  "name": "The Privacy Project",
+  "teamCount": 12,
+  "regularSeasonWeeks": 13,
+  "playoffTeamCount": 4,
+  "teams": [
+    {
+      "teamId": 1,
+      "name": "Team Gang of Platipy",
+      "abbrev": "MATH",
+      "owners": [
+        "Carl Mathis"
+      ],
+      "logo": "https://g.espncdn.com/lm-static/logo-packs/core/DIS_Avengers_EndGame/DIS_Avengers_EndGame_Rocket.svg",
+      "divisionId": 0
+    },
+    {
+      "teamId": 3,
+      "name": "Finding Deebo",
+      "abbrev": "NEMO",
+      "owners": [
+        "Maddie Kobernick"
+      ],
+      "logo": "https://i.pinimg.com/564x/e3/e5/dc/e3e5dc4143d77b3dcea61776d372928c.jpg",
+      "divisionId": 0
+    },
+    {
+      "teamId": 4,
+      "name": "Not so Goated",
+      "abbrev": "HUNT",
+      "owners": [
+        "Taelor Hunter"
+      ],
+      "logo": "https://g.espncdn.com/lm-static/logo-packs/ffl/FrozenTundra-ToddDetwiler/TundraPack_03_01.svg",
+      "divisionId": 1
+    },
+    {
+      "teamId": 6,
+      "name": "Poboy Pumbas",
+      "abbrev": "PP",
+      "owners": [
+        "Jason Kirkland"
+      ],
+      "logo": "https://g.espncdn.com/lm-static/logo-packs/ffl/Talent-ChipWass/talent-woody.svg",
+      "divisionId": 1
+    },
+    {
+      "teamId": 8,
+      "name": "Vegas Vikings",
+      "abbrev": "KIRK",
+      "owners": [
+        "Joey Kirkland"
+      ],
+      "logo": "https://g.espncdn.com/lm-static/logo-packs/core/TeamMascots-RobbHarskamp/Team_Mascots-01.svg",
+      "divisionId": 1
+    },
+    {
+      "teamId": 9,
+      "name": "Team Kirkland",
+      "abbrev": "KIRK",
+      "owners": [
+        "D Kirkland"
+      ],
+      "logo": "https://g.espncdn.com/lm-static/ffl/images/default_logos/16.svg",
+      "divisionId": 0
+    },
+    {
+      "teamId": 10,
+      "name": "Dillon Panthers",
+      "abbrev": "DILL",
+      "owners": [
+        "Chase Mathis"
+      ],
+      "logo": "https://g.espncdn.com/lm-static/logo-packs/core/AnimalHeads/animal_heads-13.svg",
+      "divisionId": 1
+    },
+    {
+      "teamId": 11,
+      "name": "The Queen's Lambit",
+      "abbrev": "IAN",
+      "owners": [
+        "Ian Mathis"
+      ],
+      "logo": "https://g.espncdn.com/lm-static/logo-packs/core/AnimalHeads/animal_heads-1.svg",
+      "divisionId": 0
+    },
+    {
+      "teamId": 12,
+      "name": "Puka-chu",
+      "abbrev": "MATH",
+      "owners": [
+        "Jennifer Mathis"
+      ],
+      "logo": "https://g.espncdn.com/lm-static/ffl/images/default_logos/18.svg",
+      "divisionId": 1
+    },
+    {
+      "teamId": 13,
+      "name": "hit it fergie \ud83d\udd7a",
+      "abbrev": "jxu",
+      "owners": [
+        "Jessica Xu"
+      ],
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/18ddd5e0-7fcd-11f0-89de-d1ac062a5dc6",
+      "divisionId": 0
+    },
+    {
+      "teamId": 14,
+      "name": "Never Gonna Gibbs You Up",
+      "abbrev": "ZBS",
+      "owners": [
+        "Morgan Kobernick"
+      ],
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/28076730-7a0e-11f0-b6e4-9dd13c0fbbe2",
+      "divisionId": 0
+    },
+    {
+      "teamId": 15,
+      "name": "On Like McConkey Kong",
+      "abbrev": "OMK",
+      "owners": [
+        "Mason Kobernick"
+      ],
+      "logo": "https://g.espncdn.com/lm-static/logo-packs/ffl/CreepShow-ToddDetwiler/CreepShow-11.svg",
+      "divisionId": 1
+    }
+  ]
+}

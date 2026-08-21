@@ -1,0 +1,10 @@
+---
+/** The section divider used throughout: a chalked yard line with hash marks. */
+interface Props { label?: string; class?: string }
+const { label, class: className = "" } = Astro.props;
+---
+{label ? (
+  <div class:list={["yardline-labeled my-8", className]}><span>{label}</span></div>
+) : (
+  <div class:list={["yardline my-8", className]} aria-hidden="true"></div>
+)}

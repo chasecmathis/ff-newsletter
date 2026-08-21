@@ -1,0 +1,12 @@
+---
+/** A scoreboard block: dark ground, mono label, orange numeral. */
+interface Props { label: string; value: string; sub?: string; index?: number; flag?: boolean }
+const { label, value, sub, index = 0, flag = false } = Astro.props;
+---
+<div class="board rise p-4 sm:p-5 flex flex-col gap-1.5" style={`--i:${index}`}>
+  <span class="board-label">{label}</span>
+  <span class:list={["board-number text-2xl sm:text-[1.75rem] leading-none", flag && "!text-turf-bright"]}>
+    {value}
+  </span>
+  {sub && <span class="font-body text-sm text-paper/65 leading-snug">{sub}</span>}
+</div>

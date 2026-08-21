@@ -1,0 +1,26 @@
+---
+/** Weekly scoring line. Inline SVG — no chart library for six data points. */
+interface Props { points: { week: number; score: number }[]; class?: string; height?: number }
+const { points, class: className = "", height = 40 } = Astro.props;
+const width = 140;
+const scores = points.map((p) => p.score);
+const min = Math.min(...scores);
+const max = Math.max(...scores);
+const span = max - min || 1;
+const step = points.length > 1 ? width / (points.length - 1) : width;
+const coords = points.map((p, i) => [i * step, height - ((p.score - min) / span) * (height - 6) - 3]);
+const path = coords.map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+const last = coords.at(-1);
+---
+{points.length > 1 && (
+  <svg
+    viewBox={`0 0 ${width} ${height}`}
+    class:list={["w-full max-w-[140px] h-auto overflow-visible", className]}
+    role="img"
+    aria-label={`Weekly scores from ${min.toFixed(0)} to ${max.toFixed(0)}`}
+  >
+    <path d={path} fill="none" stroke="currentColor" stroke-width="1.5"
+      stroke-linecap="round" stroke-linejoin="round" opacity="0.55" />
+    {last && <circle cx={last[0]} cy={last[1]} r="2.5" fill="var(--color-flag)" />}
+  </svg>
+)}
