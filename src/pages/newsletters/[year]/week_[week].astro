@@ -58,7 +58,7 @@ const title = entry?.data.title ?? `Week ${facts.week}`;
     <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
       <div class="grid gap-3 grid-cols-2 lg:grid-cols-4 -mt-6 relative z-10">
         <StatPanel index={0} label="High score" value={facts.highestTeam.score.toFixed(1)} sub={facts.highestTeam.name} />
-        <StatPanel index={1} label="Low score" value={facts.lowestTeam.score.toFixed(1)} sub={facts.lowestTeam.name} />
+        <StatPanel index={1} tone="bad" label="Low score" value={facts.lowestTeam.score.toFixed(1)} sub={facts.lowestTeam.name} />
         <StatPanel index={2} label="Closest game" value={facts.closestGame.margin.toFixed(1)}
           sub={`${facts.closestGame.winnerName} over ${facts.closestGame.loserName}`} />
         <StatPanel index={3} label="Biggest rout" value={facts.biggestBlowout.margin.toFixed(1)}
@@ -101,11 +101,11 @@ const title = entry?.data.title ?? `Week ${facts.week}`;
               <h2 class="eyebrow mb-3">Against projection</h2>
               <div class="space-y-3">
                 {boom && (
-                  <StatPanel flag label="Overperformed" value={`+${boom.delta.toFixed(1)}`}
+                  <StatPanel label="Overperformed" value={`+${boom.delta.toFixed(1)}`}
                     sub={`${boom.name} scored ${boom.points.toFixed(1)} on a ${boom.projected.toFixed(1)} projection for ${boom.teamName}`} />
                 )}
                 {bust && (
-                  <StatPanel label="Underperformed" value={bust.delta.toFixed(1)}
+                  <StatPanel tone="bad" label="Underperformed" value={bust.delta.toFixed(1)}
                     sub={`${bust.name} scored ${bust.points.toFixed(1)} on a ${bust.projected.toFixed(1)} projection for ${bust.teamName}`} />
                 )}
               </div>
@@ -129,13 +129,13 @@ const title = entry?.data.title ?? `Week ${facts.week}`;
         {prev ? (
           <a href={weekUrl(facts.year, prev)} class="no-underline group">
             <span class="eyebrow block mb-1">← Previous</span>
-            <span class="display text-xl group-hover:text-flag transition-colors">Week {prev}</span>
+            <span class="display text-xl group-hover:text-field transition-colors">Week {prev}</span>
           </a>
         ) : <span />}
         {next && (
           <a href={weekUrl(facts.year, next)} class="no-underline group text-right">
             <span class="eyebrow block mb-1">Next →</span>
-            <span class="display text-xl group-hover:text-flag transition-colors">Week {next}</span>
+            <span class="display text-xl group-hover:text-field transition-colors">Week {next}</span>
           </a>
         )}
       </nav>

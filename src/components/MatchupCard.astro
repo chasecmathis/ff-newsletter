@@ -9,13 +9,13 @@ const blowout = m.margin >= 40;
 ---
 <article class="rise lift border hairline bg-paper p-4 sm:p-5" style={`--i:${index}`}>
   <div class="flex items-baseline justify-between gap-3 mb-3">
-    <a href={teamUrl(year, m.winnerTeamId)} class="no-underline font-medium leading-tight hover:text-flag">
+    <a href={teamUrl(year, m.winnerTeamId)} class="no-underline font-medium leading-tight hover:text-field">
       {m.winnerName}
     </a>
     <span class="font-mono font-semibold tabular text-lg shrink-0">{m.winnerScore.toFixed(1)}</span>
   </div>
   <div class="flex items-baseline justify-between gap-3 text-ink-soft">
-    <a href={teamUrl(year, m.loserTeamId)} class="no-underline leading-tight hover:text-flag">
+    <a href={teamUrl(year, m.loserTeamId)} class="no-underline leading-tight hover:text-field">
       {m.loserName}
     </a>
     <span class="font-mono tabular text-lg shrink-0">{m.loserScore.toFixed(1)}</span>
@@ -23,7 +23,7 @@ const blowout = m.margin >= 40;
   <div class="yardline my-3.5"></div>
   <p class="font-mono text-[0.6875rem] tracking-[0.14em] uppercase text-ink-soft">
     {m.isTie ? "Tie" : `by ${m.margin.toFixed(1)}`}
-    {close && !m.isTie && <span class="text-flag"> · nail-biter</span>}
-    {blowout && <span class="text-flag"> · rout</span>}
+    {close && !m.isTie && <span class="text-field"> · nail-biter</span>}
+    {blowout && <span class="text-field"> · rout</span>}
   </p>
 </article>

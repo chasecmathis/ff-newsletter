@@ -98,8 +98,20 @@ npm run build
 Pushing to `main` deploys via GitHub Actions. CI only builds static files — the
 ESPN cookies and API key never leave your machine.
 
-Design is "Pressbox": prose on a chalk-white stat sheet, numbers on a black
-scoreboard. Tokens are in `src/styles/global.css`.
+Design is "Pressbox": prose on a chalk-white stat sheet, numbers on a deep
+field-green scoreboard. Tokens are in `src/styles/global.css`.
+
+Colour carries meaning, so it is worth keeping straight when editing:
+
+| Token | Means |
+|---|---|
+| `field` / `field-bright` | emphasis *and* good — links, playoff cut, wins, adds, positive luck |
+| `penalty` / `penalty-bright` | bad — losses, drops, busts, negative luck, the flag tag |
+| `ink-soft` | neutral, no judgement |
+
+Green does double duty because emphasis and "good" are the same idea here. Only
+genuinely bad numbers get penalty red, which is what makes it readable at a
+glance. Every pairing clears WCAG AA against its own background.
 
 ## Seasons
 

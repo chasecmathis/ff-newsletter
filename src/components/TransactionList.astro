@@ -26,12 +26,12 @@ const label: Record<string, string> = {
             <td class="py-2.5 pr-4 align-top w-24">
               <span class:list={[
                 "font-mono text-[0.625rem] font-semibold tracking-[0.14em] uppercase",
-                t.type === "TRADE_ACCEPT" ? "text-flag" : "text-ink-soft",
+                t.type === "TRADE_ACCEPT" ? "text-field" : "text-ink-soft",
               ]}>{label[t.type] ?? t.type}</span>
             </td>
             <td class="py-2.5 pr-4 align-top">
               {t.teamId !== null ? (
-                <a href={teamUrl(year, t.teamId)} class="no-underline text-sm font-medium hover:text-flag">
+                <a href={teamUrl(year, t.teamId)} class="no-underline text-sm font-medium hover:text-field">
                   {t.teamName}
                 </a>
               ) : (
@@ -40,10 +40,10 @@ const label: Record<string, string> = {
             </td>
             <td class="py-2.5 align-top text-sm">
               {t.adds.length > 0 && (
-                <div><span class="text-turf font-mono text-xs">+</span> {t.adds.map((a) => a.name).join(", ")}</div>
+                <div><span class="text-field font-mono text-xs">+</span> {t.adds.map((a) => a.name).join(", ")}</div>
               )}
               {t.drops.length > 0 && (
-                <div class="text-ink-soft"><span class="text-flag font-mono text-xs">−</span> {t.drops.map((d) => d.name).join(", ")}</div>
+                <div class="text-ink-soft"><span class="text-penalty font-mono text-xs">−</span> {t.drops.map((d) => d.name).join(", ")}</div>
               )}
             </td>
           </tr>

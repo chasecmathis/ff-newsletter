@@ -1,12 +1,20 @@
 ---
-/** A scoreboard block: dark ground, mono label, orange numeral. */
-interface Props { label: string; value: string; sub?: string; index?: number; flag?: boolean }
-const { label, value, sub, index = 0, flag = false } = Astro.props;
+/** A scoreboard block: field ground, mono label, big numeral. */
+interface Props {
+  label: string;
+  value: string;
+  sub?: string;
+  index?: number;
+  /** "bad" turns the numeral penalty red. Everything else stays field green. */
+  tone?: "default" | "bad";
+}
+const { label, value, sub, index = 0, tone = "default" } = Astro.props;
 ---
 <div class="board rise p-4 sm:p-5 flex flex-col gap-1.5" style={`--i:${index}`}>
   <span class="board-label">{label}</span>
-  <span class:list={["board-number text-2xl sm:text-[1.75rem] leading-none", flag && "!text-turf-bright"]}>
-    {value}
-  </span>
+  <span class:list={[
+    "board-number text-2xl sm:text-[1.75rem] leading-none",
+    tone === "bad" && "!text-penalty-bright",
+  ]}>{value}</span>
   {sub && <span class="font-body text-sm text-paper/65 leading-snug">{sub}</span>}
 </div>

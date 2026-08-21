@@ -31,16 +31,16 @@ const entries = rows.map((row) => ({
         <tr
           class:list={[
             "border-b hairline transition-colors hover:bg-paper-deep/60",
-            row.isCutLine && "border-b-2 !border-flag/50",
+            row.isCutLine && "border-b-2 !border-field/50",
           ]}
         >
           <td class="py-2.5">
-            <span class:list={["font-display text-lg", row.inPlayoffs ? "text-flag" : "text-ink/25"]}>
+            <span class:list={["font-display text-lg", row.inPlayoffs ? "text-field" : "text-ink/25"]}>
               {row.rank}
             </span>
           </td>
           <td class:list={["py-2.5 pl-3", compact && "pr-2"]}>
-            <a href={teamUrl(year, row.teamId)} class:list={["no-underline hover:text-flag font-medium", compact && "text-sm"]}>
+            <a href={teamUrl(year, row.teamId)} class:list={["no-underline hover:text-field font-medium", compact && "text-sm"]}>
               {row.name}
             </a>
           </td>
@@ -49,7 +49,7 @@ const entries = rows.map((row) => ({
             <>
               <td class="py-2.5 text-right font-mono text-sm">{row.pointsFor.toFixed(1)}</td>
               <td class="py-2.5 text-right font-mono text-sm text-ink-soft">{row.pointsAgainst.toFixed(1)}</td>
-              <td class:list={["py-2.5 text-right font-mono text-sm", row.won ? "text-turf" : "text-ink-soft"]}>
+              <td class:list={["py-2.5 text-right font-mono text-sm", row.won ? "text-field" : "text-penalty"]}>
                 {row.streak}
               </td>
             </>

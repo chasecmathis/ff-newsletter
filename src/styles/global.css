@@ -7,16 +7,21 @@
 @import "@fontsource/ibm-plex-mono/600.css";
 
 @theme {
-  /* Prose lives on paper, numbers live on the board. */
+  /* Prose lives on paper, numbers live on the board — and the board is a night
+     field, so the whole site reads green rather than only the accents.
+     Green carries two meanings that are really one: emphasis and good.
+     Anything bad gets penalty red, so the two are never ambiguous.
+     Every pair below clears WCAG AA against its own ground. */
   --color-paper: #f4f5f1;
   --color-paper-deep: #e7e8e1;
   --color-ink: #12140f;
   --color-ink-soft: #4a4d43;
-  --color-board: #0b0d0c;
-  --color-board-soft: #171a18;
-  --color-flag: #ff5a1f;
-  --color-turf: #2f5d3a;
-  --color-turf-bright: #4c9a5f;
+  --color-board: #0c2417;
+  --color-board-soft: #123322;
+  --color-field: #1b7a3e;
+  --color-field-bright: #5fcb7e;
+  --color-penalty: #9e2b2b;
+  --color-penalty-bright: #f07a7a;
 
   --font-display: "Anton", "Arial Narrow", sans-serif;
   --font-body: "Newsreader Variable", Georgia, serif;
@@ -49,15 +54,15 @@
 
   a {
     color: inherit;
-    text-decoration-color: var(--color-flag);
+    text-decoration-color: var(--color-field);
     text-underline-offset: 3px;
     text-decoration-thickness: 2px;
   }
 
-  a:hover { color: var(--color-flag); }
+  a:hover { color: var(--color-field); }
 
   :focus-visible {
-    outline: 3px solid var(--color-flag);
+    outline: 3px solid var(--color-field);
     outline-offset: 3px;
   }
 
@@ -123,7 +128,7 @@
   }
 
   .jersey-solid {
-    color: var(--color-flag);
+    color: var(--color-field);
     -webkit-text-stroke: 0;
     opacity: 1;
   }
@@ -135,7 +140,7 @@
     border-radius: 2px;
   }
 
-  .board a:hover { color: var(--color-flag); }
+  .board a:hover { color: var(--color-field); }
 
   .board-label {
     font-family: var(--font-mono);
@@ -149,7 +154,7 @@
   .board-number {
     font-family: var(--font-mono);
     font-weight: 600;
-    color: var(--color-flag);
+    color: var(--color-field-bright);
     font-variant-numeric: tabular-nums;
   }
 
@@ -170,8 +175,8 @@
     display: inline-flex;
     align-items: center;
     gap: 0.375rem;
-    background: var(--color-flag);
-    color: var(--color-board);
+    background: var(--color-penalty);
+    color: var(--color-paper);
     font-family: var(--font-mono);
     font-size: 0.625rem;
     font-weight: 600;

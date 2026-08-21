@@ -38,7 +38,7 @@ const teamCount = facts?.teamCount ?? league?.teamCount ?? 0;
         </p>
         <h1 class="text-[2.75rem] sm:text-7xl max-w-3xl mb-5">
           {titleCaseNumber(teamCount)} managers.<br />One of them is<br />
-          <a href={teamUrl(year, leader.teamId)} class="text-flag no-underline hover:opacity-80">{leader.name}</a>.
+          <a href={teamUrl(year, leader.teamId)} class="text-field no-underline hover:opacity-80">{leader.name}</a>.
         </h1>
         <p class="prose-newsletter max-w-xl text-ink-soft mb-8">
           A weekly newsletter, written from the league's own game data and read by a human
@@ -46,7 +46,7 @@ const teamCount = facts?.teamCount ?? league?.teamCount ?? 0;
         </p>
         <a href={weekUrl(year, facts.week)} class="inline-flex items-center gap-2.5 board no-underline px-5 py-3 lift">
           <span class="board-label !text-paper">Read week {facts.week}</span>
-          <span class="text-flag font-mono">→</span>
+          <span class="text-field-bright font-mono">→</span>
         </a>
       </>
     ) : (
@@ -69,7 +69,7 @@ const teamCount = facts?.teamCount ?? league?.teamCount ?? 0;
     <>
       <div class="grid gap-3 sm:grid-cols-3 -mt-7 relative z-10">
         <StatPanel index={0} label="High score, week" value={facts.highestTeam.score.toFixed(1)} sub={facts.highestTeam.name} />
-        <StatPanel index={1} label="Low score, week" value={facts.lowestTeam.score.toFixed(1)} sub={facts.lowestTeam.name} />
+        <StatPanel index={1} tone="bad" label="Low score, week" value={facts.lowestTeam.score.toFixed(1)} sub={facts.lowestTeam.name} />
         <StatPanel index={2} label="Season best" value={facts.seasonRecords.highestWeek.score.toFixed(1)}
           sub={`${facts.seasonRecords.highestWeek.name}, week ${facts.seasonRecords.highestWeek.week}`} />
       </div>
@@ -85,7 +85,7 @@ const teamCount = facts?.teamCount ?? league?.teamCount ?? 0;
               href={weekUrl(year, week)}
               class="group flex items-baseline gap-4 border hairline bg-paper px-4 py-3.5 no-underline lift h-full"
             >
-              <span class="font-display text-2xl text-ink/20 group-hover:text-flag transition-colors shrink-0 w-9">
+              <span class="font-display text-2xl text-ink/20 group-hover:text-field transition-colors shrink-0 w-9">
                 {String(week).padStart(2, "0")}
               </span>
               <span class="min-w-0 flex-1">

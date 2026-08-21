@@ -71,7 +71,7 @@ const moves = seasonFacts
       <StatPanel index={1} label="All-play" value={allPlay.allPlayRecord}
         sub={`${(allPlay.allPlayPct * 100).toFixed(0)}% against the field`} />
       <StatPanel index={2} label="Luck" value={`${allPlay.luck > 0 ? "+" : ""}${allPlay.luck.toFixed(1)}`}
-        flag={allPlay.luck > 0}
+        tone={allPlay.luck < 0 ? "bad" : "default"}
         sub={Math.abs(allPlay.luck) < 0.75
           ? "Record is what the scores earned"
           : allPlay.luck < 0
@@ -89,7 +89,7 @@ const moves = seasonFacts
             <thead>
               <tr class="border-b-2 hairline">
                 {["Wk", "", "For", "Agst", "Opponent"].map((h, i) => (
-                  <th class:list={["eyebrow pb-2 font-normal", (i === 2 || i === 3) && "text-right", i === 3 && "pl-4"]}>{h}</th>
+                  <th class:list={["eyebrow pb-2 font-normal", (i === 2 || i === 3) && "text-right", i === 4 && "pl-4"]}>{h}</th>
                 ))}
               </tr>
             </thead>
@@ -97,20 +97,20 @@ const moves = seasonFacts
               {results.map((r) => (
                 <tr class="border-b hairline hover:bg-paper-deep/60 transition-colors">
                   <td class="py-2.5">
-                    <a href={weekUrl(year, r.week)} class="font-display text-lg text-ink/30 no-underline hover:!text-flag">
+                    <a href={weekUrl(year, r.week)} class="font-display text-lg text-ink/30 no-underline hover:!text-field">
                       {String(r.week).padStart(2, "0")}
                     </a>
                   </td>
                   <td class="py-2.5 w-8">
                     <span class:list={[
                       "font-mono text-xs font-semibold",
-                      r.tied ? "text-ink-soft" : r.won ? "text-turf" : "text-flag",
+                      r.tied ? "text-ink-soft" : r.won ? "text-field" : "text-penalty",
                     ]}>{r.tied ? "T" : r.won ? "W" : "L"}</span>
                   </td>
                   <td class="py-2.5 text-right font-mono text-sm font-semibold">{r.score.toFixed(1)}</td>
                   <td class="py-2.5 pl-4 text-right font-mono text-sm text-ink-soft">{r.opponentScore.toFixed(1)}</td>
                   <td class="py-2.5 pl-4">
-                    <a href={teamUrl(year, r.opponentId)} class="no-underline text-sm hover:text-flag">{r.opponentName}</a>
+                    <a href={teamUrl(year, r.opponentId)} class="no-underline text-sm hover:text-field">{r.opponentName}</a>
                   </td>
                 </tr>
               ))}
@@ -134,13 +134,13 @@ const moves = seasonFacts
                   <td class="py-2 pr-3">
                     <span class:list={[
                       "font-mono text-[0.625rem] font-semibold tracking-wider",
-                      p.started ? "text-flag" : "text-ink/35",
+                      p.started ? "text-field" : "text-ink/35",
                     ]}>{p.slot}</span>
                   </td>
                   <td class="py-2 pr-3">
                     <span class:list={["text-sm", p.started && "font-medium text-ink"]}>{p.name}</span>
                     {p.injuryStatus && p.injuryStatus !== "ACTIVE" && (
-                      <span class="ml-2 font-mono text-[0.5625rem] tracking-wider text-flag uppercase">
+                      <span class="ml-2 font-mono text-[0.5625rem] tracking-wider text-penalty uppercase">
                         {p.injuryStatus.slice(0, 3)}
                       </span>
                     )}
@@ -158,8 +158,8 @@ const moves = seasonFacts
       <aside class="min-w-0">
         <h2 class="eyebrow mb-3">Scoring range</h2>
         <div class="space-y-3 mb-10">
-          <StatPanel label="Best week" value={best.toFixed(1)} flag />
-          <StatPanel label="Worst week" value={worst.toFixed(1)} />
+          <StatPanel label="Best week" value={best.toFixed(1)} />
+          <StatPanel label="Worst week" value={worst.toFixed(1)} tone="bad" />
         </div>
 
         <h2 class="eyebrow mb-3">Every move</h2>
@@ -170,15 +170,15 @@ const moves = seasonFacts
             {moves.map((t) => (
               <li class="border-b hairline pb-2.5 last:border-0">
                 <div class="flex items-baseline gap-2 mb-0.5">
-                  <a href={weekUrl(year, t.week)} class="font-mono text-[0.625rem] tracking-wider text-ink-soft no-underline hover:text-flag">
+                  <a href={weekUrl(year, t.week)} class="font-mono text-[0.625rem] tracking-wider text-ink-soft no-underline hover:text-field">
                     WK{String(t.week).padStart(2, "0")}
                   </a>
                   <span class="font-mono text-[0.5625rem] tracking-[0.14em] uppercase text-ink/40">
                     {t.type === "TRADE_ACCEPT" ? "Trade" : t.type === "WAIVER" ? "Waiver" : "FA"}
                   </span>
                 </div>
-                {t.adds.length > 0 && <div class="text-sm"><span class="text-turf font-mono text-xs">+</span> {t.adds.map((a) => a.name).join(", ")}</div>}
-                {t.drops.length > 0 && <div class="text-sm text-ink-soft"><span class="text-flag font-mono text-xs">−</span> {t.drops.map((d) => d.name).join(", ")}</div>}
+                {t.adds.length > 0 && <div class="text-sm"><span class="text-field font-mono text-xs">+</span> {t.adds.map((a) => a.name).join(", ")}</div>}
+                {t.drops.length > 0 && <div class="text-sm text-ink-soft"><span class="text-penalty font-mono text-xs">−</span> {t.drops.map((d) => d.name).join(", ")}</div>}
               </li>
             ))}
           </ul>
