@@ -133,3 +133,15 @@ a roster change that went unnoticed would quietly corrupt them. It is read from
   weeks only.
 - **Team names change mid-season.** Everything is keyed on `teamId`; each
   snapshot also stores the name in effect that week.
+
+## GitHub Pages setup (one-time)
+
+Pages must be set to deploy from the Action, not from a branch:
+
+**Settings → Pages → Build and deployment → Source → "GitHub Actions"**
+
+If it is left on "Deploy from a branch", GitHub also runs its own legacy Jekyll
+build on every push. Both deployments target the same site and the Jekyll one
+wins, so the site serves `README.md` as the landing page instead of the built
+Astro output. The `.nojekyll` file at the repo root keeps Jekyll from processing
+anything if that build is ever re-enabled.
