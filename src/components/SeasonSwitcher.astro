@@ -1,0 +1,35 @@
+---
+import { seasons, hasPlayedWeeks } from "../lib/data";
+import { url } from "../lib/url";
+
+/** Year tabs, styled like a scoreboard selector. */
+interface Props { active: number; class?: string }
+const { active, class: className = "" } = Astro.props;
+
+const years = seasons.map((year) => ({
+  year,
+  href: url(`/seasons/${year}/`),
+  isActive: year === active,
+  // A season created in ESPN but not yet underway still gets a page.
+  upcoming: !hasPlayedWeeks(year),
+}));
+---
+{years.length > 1 && (
+  <nav class:list={["flex items-center gap-1", className]} aria-label="Season">
+    <span class="board-label !text-ink-soft mr-2 hidden sm:inline">Season</span>
+    {years.map((y) => (
+      <a
+        href={y.href}
+        aria-current={y.isActive ? "page" : undefined}
+        class:list={[
+          "font-mono text-[0.6875rem] font-semibold tracking-[0.14em] px-2.5 py-1.5 no-underline transition-colors",
+          y.isActive
+            ? "bg-board text-flag"
+            : "text-ink-soft hover:text-flag hover:bg-paper-deep",
+        ]}
+      >
+        {y.year}{y.upcoming && <span class="opacity-50"> ·</span>}
+      </a>
+    ))}
+  </nav>
+)}

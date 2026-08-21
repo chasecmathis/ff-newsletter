@@ -2,11 +2,12 @@
 import Base from "../../../layouts/Base.astro";
 import YardLine from "../../../components/YardLine.astro";
 import Sparkline from "../../../components/Sparkline.astro";
-import { seasons, latestFacts, teamScoreSeries } from "../../../lib/data";
+import { playedSeasons, latestFacts, teamScoreSeries } from "../../../lib/data";
 import { teamUrl } from "../../../lib/url";
+import { titleCaseNumber } from "../../../lib/words";
 
 export function getStaticPaths() {
-  return seasons.map((year) => ({ params: { year: String(year) } }));
+  return playedSeasons.map((year) => ({ params: { year: String(year) } }));
 }
 
 const year = Number(Astro.params.year);
@@ -26,12 +27,13 @@ const teams = facts.standings.map((row) => ({
 }));
 ---
 
-<Base title={`Teams — ${year}`}>
+<Base title={`Teams — ${year}`} season={year}>
   <div class="mx-auto w-full max-w-6xl px-5 sm:px-8 py-12 sm:py-16">
     <p class="eyebrow mb-3">{year} · through week {facts.week}</p>
-    <h1 class="text-4xl sm:text-6xl mb-2">Twelve teams</h1>
+    <h1 class="text-4xl sm:text-6xl mb-2">{titleCaseNumber(facts.teamCount)} teams</h1>
     <p class="prose-newsletter text-ink-soft max-w-xl">
       Ordered by record. The line is every week's score, in order.
+      Top {facts.playoffTeamCount} make the playoffs.
     </p>
 
     <YardLine class="mt-10" />

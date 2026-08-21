@@ -101,6 +101,27 @@ ESPN cookies and API key never leave your machine.
 Design is "Pressbox": prose on a chalk-white stat sheet, numbers on a black
 scoreboard. Tokens are in `src/styles/global.css`.
 
+## Seasons
+
+The site is season-aware. A year switcher sits in the header, `/` shows the most
+recent season with games in it, and every season has its own page at
+`/seasons/2025/`, `/seasons/2026/` and so on. Team pages are per-season too.
+
+A season shows up in the switcher as soon as the league exists in ESPN, before
+week 1 — run `./ffnews ingest --year 2026` and it appears with a "not a snap
+played yet" page. Team pages only get generated once there are real games.
+
+**Nothing about league format is hardcoded.** Team count, playoff spots,
+regular-season length and the roster shape all come from `league.json`, which is
+written per season from ESPN's own settings. 2025 was 12 teams / 4 playoff spots
+/ 13 weeks / one flex; 2026 is 10 / 6 / 14 / two flex, and everything —
+standings, the playoff cut line, optimal-lineup math, the headline copy — follows
+automatically.
+
+That last one matters most: optimal lineup drives every bench-blunder number, so
+a roster change that went unnoticed would quietly corrupt them. It is read from
+`lineupSlots` per season rather than assumed.
+
 ## Things that will break
 
 - **ESPN cookies expire every few months.** `ffnews ingest` will tell you when

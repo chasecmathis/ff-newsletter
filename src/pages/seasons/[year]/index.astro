@@ -1,0 +1,15 @@
+---
+import Base from "../../../layouts/Base.astro";
+import SeasonHome from "../../../components/SeasonHome.astro";
+import { seasons, leagueFor } from "../../../lib/data";
+
+export function getStaticPaths() {
+  return seasons.map((year) => ({ params: { year: String(year) } }));
+}
+
+const year = Number(Astro.params.year);
+const league = leagueFor(year);
+---
+<Base title={`${year} — ${league?.name ?? "Pressbox"}`} season={year}>
+  <SeasonHome year={year} />
+</Base>

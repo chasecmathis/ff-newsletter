@@ -16,11 +16,29 @@ from typing import Any, Iterable
 from .config import facts_path
 from .ingest import available_weeks, load_league, load_week
 
-# QB 1 / RB 2 / WR 2 / TE 1 / FLEX 1 / D-ST 1 / K 1
-STARTING_SLOTS: dict[str, int] = {"QB": 1, "RB": 2, "WR": 2, "TE": 1, "D/ST": 1, "K": 1}
-FLEX_SLOT = "RB/WR/TE"
-FLEX_POSITIONS = {"RB", "WR", "TE"}
+# Fallback only, for a season ingested before lineupSlots was recorded.
+DEFAULT_SLOTS: dict[str, int] = {"QB": 1, "RB": 2, "WR": 2, "TE": 1, "D/ST": 1, "K": 1, "RB/WR/TE": 1}
 SCORING_POSITIONS = ["QB", "RB", "WR", "TE", "D/ST", "K"]
+
+
+# "D/ST" is a position whose *name* contains a slash — it is not a two-position
+# flex. Splitting it yields {D, ST}, which no player can ever fill, silently
+# dropping the defense from every optimal lineup.
+SINGLE_POSITION_SLOTS = {
+    "QB", "RB", "WR", "TE", "K", "D/ST", "P", "HC",
+    "DL", "DE", "DT", "LB", "DB", "CB", "S",
+}
+
+
+def slot_positions(slot: str) -> set[str]:
+    """Positions a lineup slot accepts. "RB/WR/TE" -> {RB, WR, TE}."""
+    if slot in SINGLE_POSITION_SLOTS:
+        return {slot}
+    return set(slot.split("/")) if "/" in slot else {slot}
+
+
+def lineup_slots(year: int) -> dict[str, int]:
+    return load_league(year).get("lineupSlots") or DEFAULT_SLOTS
 
 
 def _fmt(value: float) -> str:
@@ -54,40 +72,40 @@ def is_playoff_week(year: int, week: int) -> bool:
 # ---------------------------------------------------------------- lineups
 
 
-def optimal_lineup(lineup: list[dict]) -> tuple[float, list[dict]]:
+def optimal_lineup(lineup: list[dict], slots: dict[str, int]) -> tuple[float, list[dict]]:
     """Best legal starting lineup from the players who were actually rosterable.
 
     IR players are excluded: they were locked and could not have been started,
     so counting them would produce a "you should have started him" claim that
     isn't true.
 
-    With one flex and position-exclusive dedicated slots, greedy is exactly
-    optimal: fill each dedicated slot with the best at that position, then give
-    the flex to the best remaining flex-eligible player.
+    Slots are filled most-restrictive first — single-position slots, then flex —
+    taking the top scorers available at each step. With position-exclusive
+    dedicated slots and flex slots accepting a superset of those positions, this
+    is exactly optimal, and it handles any number of flex spots (2025 had one,
+    2026 has two).
     """
     available = [p for p in lineup if p["slot"] != "IR"]
-    by_position: dict[str, list[dict]] = {}
-    for p in available:
-        by_position.setdefault(p["position"], []).append(p)
-    for players in by_position.values():
-        players.sort(key=lambda p: p["points"], reverse=True)
+    ranked = sorted(available, key=lambda p: p["points"], reverse=True)
 
     chosen: list[dict] = []
     used: set[int] = set()
-    for position, count in STARTING_SLOTS.items():
-        for p in by_position.get(position, [])[:count]:
-            chosen.append({**p, "optimalSlot": position})
+    for slot, count in sorted(slots.items(), key=lambda kv: len(slot_positions(kv[0]))):
+        eligible = slot_positions(slot)
+        filled = 0
+        for p in ranked:
+            if filled >= count:
+                break
+            if id(p) in used or p["position"] not in eligible:
+                continue
+            chosen.append({**p, "optimalSlot": slot})
             used.add(id(p))
-
-    flex_pool = [p for p in available if p["position"] in FLEX_POSITIONS and id(p) not in used]
-    if flex_pool:
-        best_flex = max(flex_pool, key=lambda p: p["points"])
-        chosen.append({**best_flex, "optimalSlot": FLEX_SLOT})
+            filled += 1
 
     return round(sum(p["points"] for p in chosen), 2), chosen
 
 
-def worst_decision(lineup: list[dict]) -> dict | None:
+def worst_decision(lineup: list[dict], slots: dict[str, int]) -> dict | None:
     """The single start/sit call that cost the most points.
 
     Compares the lowest-scoring starter against the highest-scoring bench player
@@ -101,7 +119,7 @@ def worst_decision(lineup: list[dict]) -> dict | None:
     best: dict | None = None
     for started in starters:
         slot = started["slot"]
-        eligible = FLEX_POSITIONS if slot == FLEX_SLOT else {slot}
+        eligible = slot_positions(slot)
         for benched in bench:
             if benched["position"] not in eligible:
                 continue
@@ -230,6 +248,7 @@ def all_play_through(year: int, week: int) -> list[dict]:
 
 def week_detail(year: int, week: int) -> dict[str, Any]:
     data = load_week(year, week)
+    slots = lineup_slots(year)
     matchups, efficiency = [], []
 
     for m in data["matchups"]:
@@ -248,7 +267,7 @@ def week_detail(year: int, week: int) -> dict[str, Any]:
             }
         )
         for side in (home, away):
-            optimal, _ = optimal_lineup(side["lineup"])
+            optimal, _ = optimal_lineup(side["lineup"], slots)
             efficiency.append(
                 {
                     "teamId": side["teamId"],
@@ -257,7 +276,7 @@ def week_detail(year: int, week: int) -> dict[str, Any]:
                     "optimal": optimal,
                     "pointsLeftOnBench": round(optimal - side["score"], 2),
                     "efficiencyPct": round(100 * side["score"] / optimal, 1) if optimal else 0.0,
-                    "worstDecision": worst_decision(side["lineup"]),
+                    "worstDecision": worst_decision(side["lineup"], slots),
                 }
             )
 

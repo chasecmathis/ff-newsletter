@@ -40,7 +40,7 @@ const bust = facts.projections.biggestBust;
 const title = entry?.data.title ?? `Week ${facts.week}`;
 ---
 
-<Base title={`${title} — Week ${facts.week}, ${facts.year}`}>
+<Base title={`${title} — Week ${facts.week}, ${facts.year}`} season={facts.year}>
   <article>
     <header class="relative overflow-hidden border-b hairline">
       <span

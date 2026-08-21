@@ -86,12 +86,21 @@ def ingest_league(year: int) -> dict[str, Any]:
     """League metadata and the current team roster. Rewritten on every run."""
     league = espn.get_league(year)
     settings = league.settings
+    # Roster shape is per-season and it does change: 2026 went from one flex
+    # spot to two. Optimal-lineup math depends on it, so store what ESPN says
+    # rather than assuming last year's format.
+    slot_counts = {
+        slot: count
+        for slot, count in (getattr(settings, "position_slot_counts", {}) or {}).items()
+        if count and slot not in {"BE", "IR", ""}
+    }
     payload = {
         "year": year,
         "name": getattr(settings, "name", f"{year} Season"),
         "teamCount": len(league.teams),
         "regularSeasonWeeks": getattr(settings, "reg_season_count", 14),
         "playoffTeamCount": getattr(settings, "playoff_team_count", 6),
+        "lineupSlots": slot_counts,
         "teams": [
             {
                 "teamId": t.team_id,

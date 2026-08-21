@@ -4,12 +4,12 @@ import YardLine from "../../../components/YardLine.astro";
 import StatPanel from "../../../components/StatPanel.astro";
 import Sparkline from "../../../components/Sparkline.astro";
 import {
-  seasons, latestFacts, allFacts, teamScoreSeries, teamResults, snapshotFor,
+  playedSeasons, latestFacts, allFacts, teamScoreSeries, teamResults, snapshotFor,
 } from "../../../lib/data";
 import { teamUrl, weekUrl } from "../../../lib/url";
 
 export function getStaticPaths() {
-  return seasons.flatMap((year) => {
+  return playedSeasons.flatMap((year) => {
     const facts = latestFacts(year);
     if (!facts) return [];
     return facts.standings.map((row) => ({
@@ -52,7 +52,7 @@ const moves = seasonFacts
   .flatMap((f) => f.transactions.filter((t) => t.teamId === teamId).map((t) => ({ ...t, week: f.week })));
 ---
 
-<Base title={`${standing.name} — ${year}`}>
+<Base title={`${standing.name} — ${year}`} season={year}>
   <header class="relative overflow-hidden border-b hairline">
     <span class="jersey absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 text-[13rem] sm:text-[18rem] pointer-events-none"
       aria-hidden="true">{String(standing.rank).padStart(2, "0")}</span>

@@ -1,0 +1,110 @@
+---
+import { getCollection } from "astro:content";
+import StandingsTable from "./StandingsTable.astro";
+import YardLine from "./YardLine.astro";
+import StatPanel from "./StatPanel.astro";
+import { latestFacts, weeksOf, leagueFor } from "../lib/data";
+import { weekUrl, teamUrl } from "../lib/url";
+import { titleCaseNumber } from "../lib/words";
+
+/** One season's landing view. Shared by / and /seasons/[year]/. */
+interface Props { year: number }
+const { year } = Astro.props;
+
+const league = leagueFor(year);
+const facts = latestFacts(year);
+
+const published = await getCollection("newsletters", (e) => e.data.status === "published" && e.data.year === year);
+// Numeric sort: week 10 comes after week 9, which the old site got wrong.
+const weeks = weeksOf(year).map((week) => ({
+  week,
+  entry: published.find((e) => e.data.week === week),
+}));
+
+const leader = facts?.standings[0];
+const teamCount = facts?.teamCount ?? league?.teamCount ?? 0;
+---
+
+<section class="relative overflow-hidden border-b hairline">
+  <span
+    class="jersey absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 text-[13rem] sm:text-[19rem] pointer-events-none"
+    aria-hidden="true">{facts ? String(facts.week).padStart(2, "0") : String(year).slice(2)}</span>
+
+  <div class="relative mx-auto w-full max-w-6xl px-5 sm:px-8 py-14 sm:py-20">
+    {facts && leader ? (
+      <>
+        <p class="eyebrow mb-3">
+          {year} Season · Week {facts.week} of {facts.regularSeasonWeeks}
+        </p>
+        <h1 class="text-[2.75rem] sm:text-7xl max-w-3xl mb-5">
+          {titleCaseNumber(teamCount)} managers.<br />One of them is<br />
+          <a href={teamUrl(year, leader.teamId)} class="text-flag no-underline hover:opacity-80">{leader.name}</a>.
+        </h1>
+        <p class="prose-newsletter max-w-xl text-ink-soft mb-8">
+          A weekly newsletter, written from the league's own game data and read by a human
+          before it ships. Every number on this site comes from the same file the writing does.
+        </p>
+        <a href={weekUrl(year, facts.week)} class="inline-flex items-center gap-2.5 board no-underline px-5 py-3 lift">
+          <span class="board-label !text-paper">Read week {facts.week}</span>
+          <span class="text-flag font-mono">→</span>
+        </a>
+      </>
+    ) : (
+      <>
+        <p class="eyebrow mb-3">{year} Season</p>
+        <h1 class="text-[2.75rem] sm:text-7xl max-w-3xl mb-5">
+          {teamCount ? <>{titleCaseNumber(teamCount)} teams.<br /></> : null}Not a snap played yet.
+        </h1>
+        <p class="prose-newsletter max-w-xl text-ink-soft">
+          The league exists and the rosters are set, but no games have been scored.
+          The first newsletter lands after week 1.
+        </p>
+      </>
+    )}
+  </div>
+</section>
+
+<div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
+  {facts ? (
+    <>
+      <div class="grid gap-3 sm:grid-cols-3 -mt-7 relative z-10">
+        <StatPanel index={0} label="High score, week" value={facts.highestTeam.score.toFixed(1)} sub={facts.highestTeam.name} />
+        <StatPanel index={1} label="Low score, week" value={facts.lowestTeam.score.toFixed(1)} sub={facts.lowestTeam.name} />
+        <StatPanel index={2} label="Season best" value={facts.seasonRecords.highestWeek.score.toFixed(1)}
+          sub={`${facts.seasonRecords.highestWeek.name}, week ${facts.seasonRecords.highestWeek.week}`} />
+      </div>
+
+      <YardLine label={`Standings · through week ${facts.week}`} class="mt-14" />
+      <StandingsTable rows={facts.standings} year={year} playoffSpots={facts.playoffTeamCount} />
+
+      <YardLine label={`${year} weeks`} class="mt-16" />
+      <ul class="grid gap-2 sm:grid-cols-2 mb-12">
+        {weeks.map(({ week, entry }, i) => (
+          <li class="rise" style={`--i:${i}`}>
+            <a
+              href={weekUrl(year, week)}
+              class="group flex items-baseline gap-4 border hairline bg-paper px-4 py-3.5 no-underline lift h-full"
+            >
+              <span class="font-display text-2xl text-ink/20 group-hover:text-flag transition-colors shrink-0 w-9">
+                {String(week).padStart(2, "0")}
+              </span>
+              <span class="min-w-0 flex-1">
+                <span class="block leading-snug">{entry ? entry.data.title : `Week ${week}`}</span>
+                {!entry && <span class="block eyebrow mt-1 !text-[0.625rem]">Stats only — no newsletter</span>}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
+  ) : (
+    <div class="mt-14 mb-12 border hairline p-6">
+      <p class="eyebrow mb-2">Nothing to show yet</p>
+      <p class="prose-newsletter text-ink-soft !text-base m-0">
+        Once week 1 is in the books, run{" "}
+        <code class="font-mono text-sm">./ffnews ingest --year {year}</code>{" "}and{" "}
+        <code class="font-mono text-sm">./ffnews facts --year {year}</code>, and this page fills in.
+      </p>
+    </div>
+  )}
+</div>

@@ -1,9 +1,9 @@
 {
-  "year": 2025,
+  "year": 2026,
   "name": "The Privacy Project",
-  "teamCount": 12,
-  "regularSeasonWeeks": 13,
-  "playoffTeamCount": 4,
+  "teamCount": 10,
+  "regularSeasonWeeks": 14,
+  "playoffTeamCount": 6,
   "lineupSlots": {
     "QB": 1,
     "RB": 2,
@@ -11,7 +11,7 @@
     "TE": 1,
     "D/ST": 1,
     "K": 1,
-    "RB/WR/TE": 1
+    "RB/WR/TE": 2
   },
   "teams": [
     {
@@ -23,26 +23,6 @@
       ],
       "logo": "https://g.espncdn.com/lm-static/logo-packs/core/DIS_Avengers_EndGame/DIS_Avengers_EndGame_Rocket.svg",
       "divisionId": 0
-    },
-    {
-      "teamId": 3,
-      "name": "Finding Deebo",
-      "abbrev": "NEMO",
-      "owners": [
-        "Maddie Kobernick"
-      ],
-      "logo": "https://i.pinimg.com/564x/e3/e5/dc/e3e5dc4143d77b3dcea61776d372928c.jpg",
-      "divisionId": 0
-    },
-    {
-      "teamId": 4,
-      "name": "Not so Goated",
-      "abbrev": "HUNT",
-      "owners": [
-        "Taelor Hunter"
-      ],
-      "logo": "https://g.espncdn.com/lm-static/logo-packs/ffl/FrozenTundra-ToddDetwiler/TundraPack_03_01.svg",
-      "divisionId": 1
     },
     {
       "teamId": 6,

@@ -43,7 +43,24 @@ export const snapshots: WeekSnapshot[] = parseAll(snapshotFiles, weekSnapshotSch
   (a, b) => b.year - a.year || b.week - a.week
 );
 
-export const seasons: number[] = [...new Set(allFacts.map((f) => f.year))].sort((a, b) => b - a);
+/**
+ * Every season we know about, newest first — including one that has been
+ * created in ESPN but has not kicked off yet, so a new year appears in the
+ * switcher the moment the league exists rather than after week 1.
+ */
+export const seasons: number[] = [
+  ...new Set([...leagues.map((l) => l.year), ...allFacts.map((f) => f.year)]),
+].sort((a, b) => b - a);
+
+/** Seasons with at least one played week. */
+export const playedSeasons: number[] = [...new Set(allFacts.map((f) => f.year))].sort((a, b) => b - a);
+
+export function hasPlayedWeeks(year: number): boolean {
+  return allFacts.some((f) => f.year === year);
+}
+
+/** Most recent season that actually has games in it. */
+export const currentSeason: number = playedSeasons[0] ?? seasons[0];
 
 export function leagueFor(year: number): League | undefined {
   return leagues.find((l) => l.year === year);

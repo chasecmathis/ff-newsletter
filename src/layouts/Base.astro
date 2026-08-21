@@ -1,18 +1,26 @@
 ---
 import "../styles/global.css";
 import { url } from "../lib/url";
-import { seasons } from "../lib/data";
+import { seasons, currentSeason, hasPlayedWeeks } from "../lib/data";
+import SeasonSwitcher from "../components/SeasonSwitcher.astro";
 
 interface Props {
   title: string;
   description?: string;
+  /** Season this page belongs to, so the switcher and nav stay in context. */
+  season?: number;
 }
 
-const { title, description = "Weekly newsletter and stats for a home fantasy football league." } = Astro.props;
-const currentSeason = seasons[0];
+const {
+  title,
+  description = "Weekly newsletter and stats for a home fantasy football league.",
+  season = currentSeason,
+} = Astro.props;
+
+// Nav follows the season you are looking at, not whatever the newest one is.
 const nav = [
-  { label: "Weeks", href: url("/") },
-  { label: "Teams", href: url(`/teams/${currentSeason}/`) },
+  { label: "Weeks", href: url(`/seasons/${season}/`) },
+  ...(hasPlayedWeeks(season) ? [{ label: "Teams", href: url(`/teams/${season}/`) }] : []),
 ];
 ---
 
@@ -38,16 +46,19 @@ const nav = [
             Pressbox
           </span>
         </a>
-        <nav class="flex gap-5 sm:gap-7">
-          {nav.map((item) => (
-            <a
-              href={item.href}
-              class="font-mono text-[0.6875rem] font-semibold tracking-[0.22em] uppercase no-underline hover:text-flag"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <div class="flex items-center gap-5 sm:gap-7">
+          <nav class="flex gap-5 sm:gap-7">
+            {nav.map((item) => (
+              <a
+                href={item.href}
+                class="font-mono text-[0.6875rem] font-semibold tracking-[0.22em] uppercase no-underline hover:text-flag"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <SeasonSwitcher active={season} />
+        </div>
       </div>
     </header>
 
